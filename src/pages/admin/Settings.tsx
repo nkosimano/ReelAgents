@@ -24,8 +24,13 @@ export const AdminSettings: React.FC = () => {
     <DashboardLayout>
       <div className="space-y-6">
         <div>
+<<<<<<< HEAD
           <h1 className="text-2xl font-bold text-gray-900">Platform Settings</h1>
           <p className="text-gray-600">
+=======
+          <h1 className="text-2xl font-bold text-neutral-900">Platform Settings</h1>
+          <p className="text-neutral-600">
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
             Configure platform-wide settings and policies
           </p>
         </div>
@@ -88,17 +93,28 @@ export const AdminSettings: React.FC = () => {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
+<<<<<<< HEAD
                 <Shield className="w-5 h-5 mr-2 text-blue-600" />
+=======
+                <Shield className="w-5 h-5 mr-2 text-primary-600" />
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 Security & Approval
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
+<<<<<<< HEAD
                   <label className="text-sm font-medium text-gray-700">
                     Agent Approval Required
                   </label>
                   <p className="text-sm text-gray-500">
+=======
+                  <label className="text-sm font-medium text-neutral-700">
+                    Agent Approval Required
+                  </label>
+                  <p className="text-sm text-neutral-500">
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     Require admin approval for new agents
                   </p>
                 </div>
@@ -112,16 +128,27 @@ export const AdminSettings: React.FC = () => {
                     }))}
                     className="sr-only peer"
                   />
+<<<<<<< HEAD
                   <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+=======
+                  <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 </label>
               </div>
 
               <div className="flex items-center justify-between">
                 <div>
+<<<<<<< HEAD
                   <label className="text-sm font-medium text-gray-700">
                     Email Notifications
                   </label>
                   <p className="text-sm text-gray-500">
+=======
+                  <label className="text-sm font-medium text-neutral-700">
+                    Email Notifications
+                  </label>
+                  <p className="text-sm text-neutral-500">
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     Send email notifications for platform events
                   </p>
                 </div>
@@ -135,7 +162,11 @@ export const AdminSettings: React.FC = () => {
                     }))}
                     className="sr-only peer"
                   />
+<<<<<<< HEAD
                   <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+=======
+                  <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 </label>
               </div>
 
@@ -161,6 +192,7 @@ export const AdminSettings: React.FC = () => {
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
+<<<<<<< HEAD
                 <p className="text-2xl font-bold text-gray-900">48</p>
                 <p className="text-sm text-gray-600">Total Companies</p>
               </div>
@@ -175,6 +207,22 @@ export const AdminSettings: React.FC = () => {
               <div className="text-center">
                 <p className="text-2xl font-bold text-gray-900">$245K</p>
                 <p className="text-sm text-gray-600">Monthly Volume</p>
+=======
+                <p className="text-2xl font-bold text-neutral-900">48</p>
+                <p className="text-sm text-neutral-600">Total Companies</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-neutral-900">127</p>
+                <p className="text-sm text-neutral-600">Active Agents</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-neutral-900">89</p>
+                <p className="text-sm text-neutral-600">Active Campaigns</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-neutral-900">$245K</p>
+                <p className="text-sm text-neutral-600">Monthly Volume</p>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               </div>
             </div>
           </CardContent>

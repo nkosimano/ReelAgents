@@ -117,10 +117,17 @@ export const StripeOnboarding: React.FC<StripeOnboardingProps> = ({
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="w-8 h-8 text-green-600" />
           </div>
+<<<<<<< HEAD
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
             Stripe Setup Complete!
           </h3>
           <p className="text-gray-600 mb-4">
+=======
+          <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+            Stripe Setup Complete!
+          </h3>
+          <p className="text-neutral-600 mb-4">
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
             Your {userType === 'agent' ? 'payout' : 'payment'} account has been successfully configured.
           </p>
           <Button onClick={onComplete}>
@@ -135,16 +142,28 @@ export const StripeOnboarding: React.FC<StripeOnboardingProps> = ({
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center">
+<<<<<<< HEAD
           <CreditCard className="w-5 h-5 mr-2 text-indigo-600" />
+=======
+          <CreditCard className="w-5 h-5 mr-2 text-secondary" />
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
           {content.title}
         </CardTitle>
       </CardHeader>
       <CardContent>
+<<<<<<< HEAD
         <p className="text-gray-600 mb-6">{content.description}</p>
         
         <div className="space-y-3 mb-6">
           {content.benefits.map((benefit, index) => (
             <div key={index} className="flex items-center text-sm text-gray-700">
+=======
+        <p className="text-neutral-600 mb-6">{content.description}</p>
+        
+        <div className="space-y-3 mb-6">
+          {content.benefits.map((benefit, index) => (
+            <div key={index} className="flex items-center text-sm text-neutral-700">
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
               {benefit}
             </div>
@@ -167,7 +186,11 @@ export const StripeOnboarding: React.FC<StripeOnboardingProps> = ({
           Set Up with Stripe
         </Button>
 
+<<<<<<< HEAD
         <p className="text-xs text-gray-500 mt-4 text-center">
+=======
+        <p className="text-xs text-neutral-500 mt-4 text-center">
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
           You'll be redirected to Stripe to complete the setup process securely.
         </p>
       </CardContent>

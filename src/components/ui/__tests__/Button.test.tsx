@@ -7,15 +7,26 @@ describe('Button Component', () => {
     render(<Button>Click me</Button>);
     const button = screen.getByRole('button', { name: /click me/i });
     expect(button).toBeInTheDocument();
+<<<<<<< HEAD
     expect(button).toHaveClass('bg-indigo-600');
+=======
+    expect(button).toHaveClass('bg-secondary');
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
   });
 
   it('renders different variants correctly', () => {
     const { rerender } = render(<Button variant="secondary">Secondary</Button>);
+<<<<<<< HEAD
     expect(screen.getByRole('button')).toHaveClass('bg-gray-600');
 
     rerender(<Button variant="outline">Outline</Button>);
     expect(screen.getByRole('button')).toHaveClass('border-gray-300');
+=======
+    expect(screen.getByRole('button')).toHaveClass('bg-neutral-600');
+
+    rerender(<Button variant="outline">Outline</Button>);
+    expect(screen.getByRole('button')).toHaveClass('border-neutral-300');
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
 
     rerender(<Button variant="danger">Danger</Button>);
     expect(screen.getByRole('button')).toHaveClass('bg-red-600');

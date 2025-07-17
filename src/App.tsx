@@ -13,7 +13,11 @@ import { ForgotPassword } from './pages/auth/ForgotPassword';
 // Protected pages
 import { Dashboard } from './pages/Dashboard';
 import { DigitalTwins } from './pages/company/DigitalTwins';
+<<<<<<< HEAD
 import { Campaigns } from './pages/company/Campaigns';
+=======
+import CompanyCampaigns from './pages/company/Campaigns';
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
 import { AgentProfile } from './pages/agent/Profile';
 import { AgentCampaigns } from './pages/agent/Campaigns';
 import { AgentEarnings } from './pages/agent/Earnings';
@@ -65,7 +69,11 @@ function App() {
             path="/company/campaigns" 
             element={
               <ProtectedRoute requiredRole="company">
+<<<<<<< HEAD
                 <Campaigns />
+=======
+                <CompanyCampaigns />
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               </ProtectedRoute>
             } 
           />

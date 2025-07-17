@@ -4,7 +4,7 @@ import { useAuth } from '../hooks/useAuth';
 import { BarChart3, Users, Bot, Building2 } from 'lucide-react';
 
 export const Dashboard: React.FC = () => {
-  const { profile, isCompany, isAgent, isAdmin } = useAuth();
+  const { isCompany, isAgent, isAdmin } = useAuth();
 
   const getWelcomeMessage = () => {
     if (isCompany) return 'Welcome to your company dashboard';
@@ -16,7 +16,7 @@ export const Dashboard: React.FC = () => {
   const getQuickStats = () => {
     if (isCompany) {
       return [
-        { name: 'Active Campaigns', value: '3', icon: BarChart3, color: 'bg-blue-500' },
+        { name: 'Active Campaigns', value: '3', icon: BarChart3, color: 'bg-primary-500' },
         { name: 'Digital Twins', value: '2', icon: Bot, color: 'bg-green-500' },
         { name: 'Connected Agents', value: '5', icon: Users, color: 'bg-purple-500' },
       ];
@@ -24,7 +24,7 @@ export const Dashboard: React.FC = () => {
 
     if (isAgent) {
       return [
-        { name: 'Available Campaigns', value: '12', icon: BarChart3, color: 'bg-blue-500' },
+        { name: 'Available Campaigns', value: '12', icon: BarChart3, color: 'bg-primary-500' },
         { name: 'Active Projects', value: '3', icon: Bot, color: 'bg-green-500' },
         { name: 'Earnings This Month', value: '$2,450', icon: Users, color: 'bg-purple-500' },
       ];
@@ -32,7 +32,7 @@ export const Dashboard: React.FC = () => {
 
     if (isAdmin) {
       return [
-        { name: 'Total Companies', value: '48', icon: Building2, color: 'bg-blue-500' },
+        { name: 'Total Companies', value: '48', icon: Building2, color: 'bg-primary-500' },
         { name: 'Active Agents', value: '127', icon: Users, color: 'bg-green-500' },
         { name: 'Platform Revenue', value: '$45,230', icon: BarChart3, color: 'bg-purple-500' },
       ];

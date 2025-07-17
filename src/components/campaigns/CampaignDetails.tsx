@@ -20,7 +20,11 @@ export const CampaignDetails: React.FC<CampaignDetailsProps> = ({ campaign, onEd
       case 'completed':
         return 'bg-blue-100 text-blue-800';
       default:
+<<<<<<< HEAD
         return 'bg-gray-100 text-gray-800';
+=======
+        return 'bg-neutral-100 text-neutral-800';
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
     }
   };
 
@@ -37,10 +41,17 @@ export const CampaignDetails: React.FC<CampaignDetailsProps> = ({ campaign, onEd
           <div className="flex items-start justify-between">
             <div>
               <CardTitle className="flex items-center">
+<<<<<<< HEAD
                 <BarChart3 className="w-5 h-5 mr-2 text-indigo-600" />
                 {campaign.name}
               </CardTitle>
               <p className="text-gray-600 mt-2">{campaign.description}</p>
+=======
+                <BarChart3 className="w-5 h-5 mr-2 text-secondary" />
+                {campaign.name}
+              </CardTitle>
+              <p className="text-neutral-600 mt-2">{campaign.description}</p>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
             </div>
             <div className="flex items-center space-x-3">
               <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(campaign.status)}`}>
@@ -61,6 +72,7 @@ export const CampaignDetails: React.FC<CampaignDetailsProps> = ({ campaign, onEd
               <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mx-auto mb-2">
                 <DollarSign className="w-6 h-6 text-green-600" />
               </div>
+<<<<<<< HEAD
               <p className="text-2xl font-bold text-gray-900">${campaign.budget.toLocaleString()}</p>
               <p className="text-sm text-gray-600">Total Budget</p>
             </div>
@@ -81,14 +93,41 @@ export const CampaignDetails: React.FC<CampaignDetailsProps> = ({ campaign, onEd
                 {campaign.start_date ? new Date(campaign.start_date).toLocaleDateString() : 'Not set'}
               </p>
               <p className="text-sm text-gray-600">Start Date</p>
+=======
+              <p className="text-2xl font-bold text-neutral-900">${campaign.budget.toLocaleString()}</p>
+              <p className="text-sm text-neutral-600">Total Budget</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="flex items-center justify-center w-12 h-12 bg-primary-100 rounded-lg mx-auto mb-2">
+                <Users className="w-6 h-6 text-primary-800" />
+              </div>
+              <p className="text-2xl font-bold text-neutral-900">0</p>
+              <p className="text-sm text-neutral-600">Assigned Agents</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="flex items-center justify-center w-12 h-12 bg-secondary/10 rounded-lg mx-auto mb-2">
+                <Calendar className="w-6 h-6 text-secondary" />
+              </div>
+              <p className="text-2xl font-bold text-neutral-900">
+                {campaign.start_date ? new Date(campaign.start_date).toLocaleDateString() : 'Not set'}
+              </p>
+              <p className="text-sm text-neutral-600">Start Date</p>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
             </div>
             
             <div className="text-center">
               <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mx-auto mb-2">
                 <BarChart3 className="w-6 h-6 text-orange-600" />
               </div>
+<<<<<<< HEAD
               <p className="text-2xl font-bold text-gray-900">$0</p>
               <p className="text-sm text-gray-600">Spent</p>
+=======
+              <p className="text-2xl font-bold text-neutral-900">$0</p>
+              <p className="text-sm text-neutral-600">Spent</p>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
             </div>
           </div>
           
@@ -120,7 +159,11 @@ export const CampaignDetails: React.FC<CampaignDetailsProps> = ({ campaign, onEd
             <CardTitle>Target Audience</CardTitle>
           </CardHeader>
           <CardContent>
+<<<<<<< HEAD
             <p className="text-gray-700">{campaign.target_audience}</p>
+=======
+            <p className="text-neutral-700">{campaign.target_audience}</p>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
           </CardContent>
         </Card>
       )}

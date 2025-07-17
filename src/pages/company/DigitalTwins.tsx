@@ -1,6 +1,10 @@
 import React from 'react';
 import { DashboardLayout } from '../../components/layouts/DashboardLayout';
+<<<<<<< HEAD
 import { DigitalTwinUploader } from '../../components/digital-twins/DigitalTwinUploader';
+=======
+import DigitalTwinUploader from '../../components/digital-twins/DigitalTwinUploader';
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
 import { DigitalTwinsList } from '../../components/digital-twins/DigitalTwinsList';
 
 export const DigitalTwins: React.FC = () => {

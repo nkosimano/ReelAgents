@@ -20,8 +20,13 @@ export const AgentProfile: React.FC = () => {
     <DashboardLayout>
       <div className="space-y-6">
         <div>
+<<<<<<< HEAD
           <h1 className="text-2xl font-bold text-gray-900">Agent Profile</h1>
           <p className="text-gray-600">
+=======
+          <h1 className="text-2xl font-bold text-neutral-900">Agent Profile</h1>
+          <p className="text-neutral-600">
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
             Manage your profile and certification status
           </p>
         </div>
@@ -41,8 +46,13 @@ export const AgentProfile: React.FC = () => {
                   <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Award className="w-8 h-8 text-yellow-600" />
                   </div>
+<<<<<<< HEAD
                   <p className="font-medium text-gray-900 mb-2">Pending Review</p>
                   <p className="text-sm text-gray-600 mb-4">
+=======
+                  <p className="font-medium text-neutral-900 mb-2">Pending Review</p>
+                  <p className="text-sm text-neutral-600 mb-4">
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     Your certification is being reviewed by our team
                   </p>
                   <Button variant="outline" size="sm">
@@ -61,21 +71,34 @@ export const AgentProfile: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <Star className="w-4 h-4 text-yellow-500 mr-2" />
+<<<<<<< HEAD
                       <span className="text-sm text-gray-600">Rating</span>
+=======
+                      <span className="text-sm text-neutral-600">Rating</span>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     </div>
                     <span className="font-medium">4.8/5.0</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
+<<<<<<< HEAD
                       <Award className="w-4 h-4 text-blue-500 mr-2" />
                       <span className="text-sm text-gray-600">Campaigns</span>
+=======
+                      <Award className="w-4 h-4 text-primary-500 mr-2" />
+                      <span className="text-sm text-neutral-600">Campaigns</span>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     </div>
                     <span className="font-medium">12 completed</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <DollarSign className="w-4 h-4 text-green-500 mr-2" />
+<<<<<<< HEAD
                       <span className="text-sm text-gray-600">Earnings</span>
+=======
+                      <span className="text-sm text-neutral-600">Earnings</span>
+>>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     </div>
                     <span className="font-medium">$8,450</span>
                   </div>
