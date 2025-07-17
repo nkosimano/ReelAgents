@@ -1,0 +1,152 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ReelAgents AWS Backend Infrastructure
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, staging, prod]
+  
+  SupabaseUrl:
+    Type: String
+    Description: Supabase project URL
+  
+  SupabaseServiceKey:
+    Type: String
+    Description: Supabase service role key
+    NoEcho: true
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: python3.9
+    Environment:
+      Variables:
+        ENVIRONMENT: !Ref Environment
+        SUPABASE_URL: !Ref SupabaseUrl
+        SUPABASE_SERVICE_KEY: !Ref SupabaseServiceKey
+
+Resources:
+  # Lambda Functions for Step Function
+  ValidateInputFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../lambda/
+      Handler: validate_input.lambda_handler
+      Description: Validates input for digital twin creation
+      
+  StartTrainingJobFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../lambda/
+      Handler: start_training_job.lambda_handler
+      Description: Starts AI training job
+      Policies:
+        - SageMakerFullAccess
+        
+  CheckTrainingStatusFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../lambda/
+      Handler: check_training_status.lambda_handler
+      Description: Checks training job status
+      Policies:
+        - SageMakerReadOnlyAccess
+        
+  UpdateStatusFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../lambda/
+      Handler: update_status.lambda_handler
+      Description: Updates digital twin status
+      
+  HandleFailureFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../lambda/
+      Handler: handle_failure.lambda_handler
+      Description: Handles training failures
+      
+  # Lambda Authorizer
+  ApiAuthorizerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../lambda/
+      Handler: authorizer.lambda_handler
+      Description: JWT authorizer for API Gateway
+      
+  # Step Function State Machine
+  DigitalTwinStateMachine:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      DefinitionUri: ../step-functions/create-digital-twin.json
+      DefinitionSubstitutions:
+        ValidateInputFunctionArn: !GetAtt ValidateInputFunction.Arn
+        StartTrainingJobFunctionArn: !GetAtt StartTrainingJobFunction.Arn
+        CheckTrainingStatusFunctionArn: !GetAtt CheckTrainingStatusFunction.Arn
+        UpdateStatusFunctionArn: !GetAtt UpdateStatusFunction.Arn
+        HandleFailureFunctionArn: !GetAtt HandleFailureFunction.Arn
+      Policies:
+        - LambdaInvokePolicy:
+            FunctionName: !Ref ValidateInputFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref StartTrainingJobFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref CheckTrainingStatusFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref UpdateStatusFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref HandleFailureFunction
+            
+  # API Gateway
+  ReelAgentsApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: !Ref Environment
+      Auth:
+        DefaultAuthorizer: JWTAuthorizer
+        Authorizers:
+          JWTAuthorizer:
+            FunctionArn: !GetAtt ApiAuthorizerFunction.Arn
+            Identity:
+              Headers:
+                - Authorization
+      Cors:
+        AllowMethods: "'GET,POST,PUT,DELETE,OPTIONS'"
+        AllowHeaders: "'Content-Type,Authorization'"
+        AllowOrigin: "'*'"
+        
+  # API Gateway endpoint to trigger Step Function
+  StartDigitalTwinFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../lambda/
+      Handler: start_digital_twin.lambda_handler
+      Description: API endpoint to start digital twin creation
+      Environment:
+        Variables:
+          STATE_MACHINE_ARN: !Ref DigitalTwinStateMachine
+      Policies:
+        - StepFunctionsExecutionPolicy:
+            StateMachineName: !GetAtt DigitalTwinStateMachine.Name
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ReelAgentsApi
+            Path: /digital-twins
+            Method: post
+
+Outputs:
+  ApiGatewayUrl:
+    Description: API Gateway endpoint URL
+    Value: !Sub "https://${ReelAgentsApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}"
+    
+  StateMachineArn:
+    Description: Step Function State Machine ARN
+    Value: !Ref DigitalTwinStateMachine
+    
+  AuthorizerFunctionArn:
+    Description: Lambda Authorizer Function ARN
+    Value: !GetAtt ApiAuthorizerFunction.Arn

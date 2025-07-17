@@ -1,0 +1,70 @@
+{
+  "Comment": "Digital Twin Creation Workflow",
+  "StartAt": "ValidateInput",
+  "States": {
+    "ValidateInput": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:ACCOUNT_ID:function:validate-digital-twin-input",
+      "Next": "StartTrainingJob",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.TaskFailed"],
+          "Next": "HandleFailure"
+        }
+      ]
+    },
+    "StartTrainingJob": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:ACCOUNT_ID:function:start-training-job",
+      "Next": "WaitForTraining",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.TaskFailed"],
+          "Next": "HandleFailure"
+        }
+      ]
+    },
+    "WaitForTraining": {
+      "Type": "Wait",
+      "Seconds": 30,
+      "Next": "CheckTrainingStatus"
+    },
+    "CheckTrainingStatus": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:ACCOUNT_ID:function:check-training-status",
+      "Next": "IsTrainingComplete",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.TaskFailed"],
+          "Next": "HandleFailure"
+        }
+      ]
+    },
+    "IsTrainingComplete": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.training_status",
+          "StringEquals": "COMPLETED",
+          "Next": "UpdateStatusToActive"
+        },
+        {
+          "Variable": "$.training_status",
+          "StringEquals": "FAILED",
+          "Next": "HandleFailure"
+        }
+      ],
+      "Default": "WaitForTraining"
+    },
+    "UpdateStatusToActive": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:ACCOUNT_ID:function:update-digital-twin-status",
+      "End": true
+    },
+    "HandleFailure": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:ACCOUNT_ID:function:handle-training-failure",
+      "End": true
+    }
+  }
+}
