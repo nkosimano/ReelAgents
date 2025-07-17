@@ -28,8 +28,15 @@ export const Login: React.FC = () => {
           variables: {
             default: {
               colors: {
-                brand: 'var(--tw-color-secondary)',
-                brandAccent: 'var(--tw-color-secondary)',
+                brand: 'var(--tw-color-secondary, #2563eb)', // fallback to blue-600
+                brandAccent: 'var(--tw-color-secondary, #2563eb)',
+                inputText: '#111827',
+                inputLabelText: '#111827',
+                buttonText: '#fff',
+                buttonBackground: '#2563eb', // blue-600
+                buttonBackgroundHover: '#1d4ed8', // blue-700
+                buttonBorder: '#2563eb',
+                anchorText: '#2563eb',
               },
             },
           },

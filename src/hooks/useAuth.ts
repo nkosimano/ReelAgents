@@ -42,20 +42,23 @@ export const useAuth = () => {
   };
 
   useEffect(() => {
-    // Get initial session
-    const getInitialSession = async () => {
+    const fetchSessionAndProfile = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       setUser(session?.user ?? null);
       setSession(session ?? null);
       if (session?.user) {
         await fetchUserProfile(session.user.id);
+      } else {
+        setProfile(null);
       }
-      setLoading(false);
+      setLoading(false); // Only set loading to false after profile is fetched or cleared
     };
 
-    // Listen for auth changes
+    fetchSessionAndProfile();
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
+        setLoading(true); // Set loading to true at the start of auth state change
         setUser(session?.user ?? null);
         setSession(session ?? null);
         if (session?.user) {
@@ -63,15 +66,15 @@ export const useAuth = () => {
         } else {
           setProfile(null);
         }
-        setLoading(false);
+        setLoading(false); // Only set loading to false after profile is fetched or cleared
       }
     );
 
-    getInitialSession();
     return () => subscription.unsubscribe();
   }, [setUser, setSession, setProfile, setLoading]);
 
   const fetchUserProfile = async (userId: string) => {
+    console.log('Fetching user profile for:', userId);
     try {
       const { data, error } = await supabase
         .from('users')
@@ -82,6 +85,7 @@ export const useAuth = () => {
         console.error('Error fetching user profile:', error);
         return;
       }
+      console.log('Fetched user profile:', data);
       setProfile(data as Database['public']['Tables']['users']['Row']);
     } catch (error) {
       console.error('Error fetching user profile:', error);

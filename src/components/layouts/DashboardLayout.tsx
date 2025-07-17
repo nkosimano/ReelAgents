@@ -83,6 +83,11 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
 
+  // Debug: Log when sidebar renders
+  React.useEffect(() => {
+    console.log('[Sidebar] Rendered:', { email: profile?.email, role: profile?.role, sidebarOpen });
+  }, [profile?.email, profile?.role, sidebarOpen]);
+
   // Get user role for navigation
   const userRole = profile?.role || 'guest';
 
@@ -105,7 +110,10 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
           <div className="flex items-center space-x-2">
             <ThemeToggle />
             <button
-              onClick={() => setSidebarOpen(false)}
+              onClick={() => {
+                setSidebarOpen(false);
+                console.log('[Sidebar] Closed');
+              }}
               className="lg:hidden p-2 rounded-md text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
             >
               <X className="w-5 h-5" />
@@ -118,16 +126,16 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
         </nav>
 
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-neutral-200 dark:border-neutral-700">
-          <div className="flex items-center mb-3">
+          <div className="flex items-center mb-3 gap-2">
             <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
               <span className="text-white text-sm font-medium">
                 {profile?.email?.charAt(0).toUpperCase()}
               </span>
             </div>
-            <div className="ml-3">
-              <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">{profile?.email}</p>
-              <div className="flex items-center space-x-2">
-                <p className="text-xs text-neutral-500 dark:text-neutral-400 capitalize">{profile?.role}</p>
+            <div className="ml-3 flex flex-col justify-center gap-1 min-w-0">
+              <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100 text-left break-all truncate max-w-[140px]">{profile?.email}</p>
+              <div className="flex items-center space-x-2 mt-1">
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 capitalize text-left">{profile?.role}</p>
                 {isAdmin && <Shield className="w-3 h-3 text-danger" />}
                 {profile?.role === 'company' && <Building2 className="w-3 h-3 text-info" />}
                 {profile?.role === 'agent' && <UserCheck className="w-3 h-3 text-success" />}
@@ -145,12 +153,15 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
       </div>
 
       {/* Main content */}
-      <div className="lg:pl-64">
+      <div>
         {/* Top bar */}
         <div className="sticky top-0 z-10 bg-white dark:bg-neutral-800 shadow-sm border-b border-neutral-200 dark:border-neutral-700">
           <div className="flex items-center justify-between h-16 px-6">
             <button
-              onClick={() => setSidebarOpen(true)}
+              onClick={() => {
+                setSidebarOpen(true);
+                console.log('[Sidebar] Opened');
+              }}
               className="lg:hidden p-2 rounded-md text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
             >
               <Menu className="w-5 h-5" />
@@ -161,9 +172,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
             </div>
           </div>
         </div>
-
         {/* Page content */}
-        <main className="p-6">
+        <main className="p-6 flex flex-col items-center justify-center w-full min-h-[calc(100vh-4rem)]">
           {children}
         </main>
       </div>

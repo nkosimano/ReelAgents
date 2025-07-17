@@ -23,7 +23,10 @@ import { CompanyBilling } from './pages/company/Billing';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
 function App() {
-  const { loading } = useAuth();
+  const { loading, user, profile } = useAuth();
+
+  // Debug log for auth state
+  console.log('Auth loading:', loading, 'User:', user, 'Profile:', profile);
 
   if (loading) {
     return (
@@ -35,22 +38,22 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-    <Router>
-      <Routes>
-        {/* Public routes */}
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/signup" element={<SignUp />} />
-        <Route path="/auth/forgot-password" element={<ForgotPassword />} />
+      <Router>
+        <Routes>
+          {/* Public routes */}
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/signup" element={<SignUp />} />
+          <Route path="/auth/forgot-password" element={<ForgotPassword />} />
 
-        {/* Protected routes */}
-        <Route 
-          path="/dashboard" 
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          } 
-        />
+          {/* Protected routes */}
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
           
           {/* Company routes */}
           <Route 

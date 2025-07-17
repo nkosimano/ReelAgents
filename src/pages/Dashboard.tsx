@@ -45,7 +45,7 @@ export const Dashboard: React.FC = () => {
 
   return (
     <DashboardLayout>
-      <div className="flex justify-center w-full">
+      <div className="flex justify-center items-center w-full min-h-[calc(100vh-4rem)]">
         <div className="w-full max-w-5xl space-y-10">
           {/* Header */}
           <div className="mb-4 text-center">
