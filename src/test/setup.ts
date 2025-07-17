@@ -65,9 +65,11 @@ vi.mock('react-router-dom', () => ({
 vi.mock('../store/authStore', () => ({
   useAuthStore: vi.fn(() => ({
     user: null,
+    session: null,
     profile: null,
     loading: false,
     setUser: vi.fn(),
+    setSession: vi.fn(),
     setProfile: vi.fn(),
     setLoading: vi.fn(),
     signOut: vi.fn(),

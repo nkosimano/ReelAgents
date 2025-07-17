@@ -40,13 +40,8 @@ export const AgentCampaigns: React.FC = () => {
     <DashboardLayout>
       <div className="space-y-6">
         <div>
-<<<<<<< HEAD
-          <h1 className="text-2xl font-bold text-gray-900">Available Campaigns</h1>
-          <p className="text-gray-600">
-=======
           <h1 className="text-2xl font-bold text-neutral-900">Available Campaigns</h1>
           <p className="text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
             Browse and apply to campaigns that match your expertise
           </p>
         </div>
@@ -55,32 +50,20 @@ export const AgentCampaigns: React.FC = () => {
         <Card>
           <CardContent className="py-4">
             <div className="flex flex-wrap items-center gap-4">
-<<<<<<< HEAD
-              <select className="px-3 py-2 border border-gray-300 rounded-lg text-sm">
-=======
               <select className="px-3 py-2 border border-neutral-300 rounded-lg text-sm">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 <option>All Specializations</option>
                 <option>Social Media Marketing</option>
                 <option>Content Creation</option>
                 <option>Tech Marketing</option>
                 <option>Video Production</option>
               </select>
-<<<<<<< HEAD
-              <select className="px-3 py-2 border border-gray-300 rounded-lg text-sm">
-=======
               <select className="px-3 py-2 border border-neutral-300 rounded-lg text-sm">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 <option>All Budgets</option>
                 <option>$5,000 - $15,000</option>
                 <option>$15,000 - $30,000</option>
                 <option>$30,000+</option>
               </select>
-<<<<<<< HEAD
-              <select className="px-3 py-2 border border-gray-300 rounded-lg text-sm">
-=======
               <select className="px-3 py-2 border border-neutral-300 rounded-lg text-sm">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 <option>All Durations</option>
                 <option>1-2 weeks</option>
                 <option>3-4 weeks</option>
@@ -99,36 +82,13 @@ export const AgentCampaigns: React.FC = () => {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-3">
-<<<<<<< HEAD
-                      <h3 className="text-lg font-semibold text-gray-900">{campaign.name}</h3>
-                      <div className="flex items-center text-sm text-gray-600">
-=======
                       <h3 className="text-lg font-semibold text-neutral-900">{campaign.name}</h3>
                       <div className="flex items-center text-sm text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                         <Building2 className="w-4 h-4 mr-1" />
                         {campaign.company}
                       </div>
                     </div>
                     
-<<<<<<< HEAD
-                    <p className="text-gray-600 mb-4">{campaign.description}</p>
-                    
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <DollarSign className="w-4 h-4 mr-1" />
-                        ${campaign.budget.toLocaleString()} budget
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {campaign.duration}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Star className="w-4 h-4 mr-1" />
-                        {campaign.rate}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-=======
                     <p className="text-neutral-600 mb-4">{campaign.description}</p>
                     
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
@@ -145,7 +105,6 @@ export const AgentCampaigns: React.FC = () => {
                         {campaign.rate}
                       </div>
                       <div className="flex items-center text-sm text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                         <BarChart3 className="w-4 h-4 mr-1" />
                         {campaign.applications} applications
                       </div>
@@ -155,11 +114,7 @@ export const AgentCampaigns: React.FC = () => {
                       {campaign.requirements.map((req, index) => (
                         <span
                           key={index}
-<<<<<<< HEAD
-                          className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800"
-=======
                           className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary/10 text-secondary"
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                         >
                           {req}
                         </span>
@@ -182,15 +137,9 @@ export const AgentCampaigns: React.FC = () => {
         {mockCampaigns.length === 0 && (
           <Card>
             <CardContent className="text-center py-12">
-<<<<<<< HEAD
-              <BarChart3 className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No Campaigns Available</h3>
-              <p className="text-gray-600">
-=======
               <BarChart3 className="w-12 h-12 text-neutral-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-neutral-900 mb-2">No Campaigns Available</h3>
               <p className="text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 Check back later for new campaign opportunities that match your skills.
               </p>
             </CardContent>

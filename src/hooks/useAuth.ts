@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { useAuthStore } from '../store/authStore';
-import { User as SupabaseUser } from '@supabase/supabase-js';
+import { User as SupabaseUser, Session as SupabaseSession } from '@supabase/supabase-js';
+import type { Database } from '../types/supabase';
 
 // JWT payload interface for role extraction
 interface JWTPayload {
@@ -19,18 +20,16 @@ interface JWTPayload {
 }
 
 export const useAuth = () => {
-  const { user, profile, loading, setUser, setProfile, setLoading } = useAuthStore();
+  const { user, session, profile, loading, setUser, setSession, setProfile, setLoading } = useAuthStore();
 
   // Parse JWT to extract role information
-  const parseJWTRole = (user: SupabaseUser | null): string | null => {
-    if (!user?.access_token) return null;
-    
+  const parseJWTRole = (accessToken: string | null | undefined): string | null => {
+    if (!accessToken) return null;
     try {
       // Decode JWT payload (base64)
       const payload = JSON.parse(
-        atob(user.access_token.split('.')[1])
+        atob(accessToken.split('.')[1])
       ) as JWTPayload;
-      
       // Check multiple possible locations for role
       return payload.user_metadata?.role || 
              payload.app_metadata?.role || 
@@ -47,11 +46,10 @@ export const useAuth = () => {
     const getInitialSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       setUser(session?.user ?? null);
-      
+      setSession(session ?? null);
       if (session?.user) {
         await fetchUserProfile(session.user.id);
       }
-      
       setLoading(false);
     };
 
@@ -59,21 +57,19 @@ export const useAuth = () => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         setUser(session?.user ?? null);
-        
+        setSession(session ?? null);
         if (session?.user) {
           await fetchUserProfile(session.user.id);
         } else {
           setProfile(null);
         }
-        
         setLoading(false);
       }
     );
 
     getInitialSession();
-
     return () => subscription.unsubscribe();
-  }, [setUser, setProfile, setLoading]);
+  }, [setUser, setSession, setProfile, setLoading]);
 
   const fetchUserProfile = async (userId: string) => {
     try {
@@ -82,13 +78,11 @@ export const useAuth = () => {
         .select('*')
         .eq('id', userId)
         .single();
-
       if (error) {
         console.error('Error fetching user profile:', error);
         return;
       }
-
-      setProfile(data);
+      setProfile(data as Database['public']['Tables']['users']['Row']);
     } catch (error) {
       console.error('Error fetching user profile:', error);
     }
@@ -99,8 +93,11 @@ export const useAuth = () => {
     useAuthStore.getState().signOut();
   };
 
+  const accessToken = session?.access_token;
+
   return {
     user,
+    session,
     profile,
     loading,
     signOut,
@@ -109,10 +106,10 @@ export const useAuth = () => {
     isAgent: profile?.role === 'agent',
     isAdmin: profile?.role === 'admin',
     // Additional role checks from JWT
-    jwtRole: parseJWTRole(user),
-    hasRole: (role: string) => profile?.role === role || parseJWTRole(user) === role,
+    jwtRole: parseJWTRole(accessToken),
+    hasRole: (role: string) => profile?.role === role || parseJWTRole(accessToken) === role,
     canAccess: (requiredRoles: string[]) => {
-      const userRole = profile?.role || parseJWTRole(user);
+      const userRole = profile?.role || parseJWTRole(accessToken);
       return userRole ? requiredRoles.includes(userRole) : false;
     },
   };

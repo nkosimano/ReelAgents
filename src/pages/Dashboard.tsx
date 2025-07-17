@@ -45,42 +45,42 @@ export const Dashboard: React.FC = () => {
 
   return (
     <DashboardLayout>
-      <div className="space-y-6">
-        {/* Header */}
-        <div>
-          <h1 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Dashboard</h1>
-          <p className="text-neutral-600 dark:text-neutral-400">{getWelcomeMessage()}</p>
-        </div>
+      <div className="flex justify-center w-full">
+        <div className="w-full max-w-5xl space-y-10">
+          {/* Header */}
+          <div className="mb-4 text-center">
+            <h1 className="text-3xl font-extrabold text-neutral-900 dark:text-neutral-100 mb-1">Dashboard</h1>
+            <p className="text-lg text-neutral-600 dark:text-neutral-400">{getWelcomeMessage()}</p>
+          </div>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {stats.map((stat) => (
-            <div key={stat.name} className="bg-white dark:bg-neutral-800 rounded-lg shadow p-6 border border-neutral-200 dark:border-neutral-700">
-              <div className="flex items-center">
-                <div className={`${stat.color} rounded-lg p-3`}>
-                  <stat.icon className="w-6 h-6 text-white" />
+          {/* Quick Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+            {stats.map((stat) => (
+              <div key={stat.name} className="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center">
+                <div className={`${stat.color} rounded-xl p-4 flex items-center justify-center`}>
+                  <stat.icon className="w-10 h-10 text-white" />
                 </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400">{stat.name}</p>
-                  <p className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">{stat.value}</p>
+                <div className="ml-6">
+                  <p className="text-base font-medium text-neutral-600 dark:text-neutral-400">{stat.name}</p>
+                  <p className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">{stat.value}</p>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Recent Activity */}
-        <div className="bg-white dark:bg-neutral-800 rounded-lg shadow border border-neutral-200 dark:border-neutral-700">
-          <div className="px-6 py-4 border-b border-neutral-200 dark:border-neutral-700">
-            <h2 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">Recent Activity</h2>
+            ))}
           </div>
-          <div className="p-6">
-            <div className="text-center py-12">
-              <BarChart3 className="w-12 h-12 text-neutral-400 mx-auto mb-4" />
-              <p className="text-neutral-500 dark:text-neutral-400">No recent activity to display</p>
-              <p className="text-sm text-neutral-400 mt-2">
-                Activity will appear here as you use the platform
-              </p>
+
+          {/* Recent Activity */}
+          <div className="bg-white dark:bg-neutral-800 rounded-2xl shadow border border-neutral-200 dark:border-neutral-700 mt-8">
+            <div className="px-8 py-6 border-b border-neutral-200 dark:border-neutral-700">
+              <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">Recent Activity</h2>
+            </div>
+            <div className="p-8">
+              <div className="text-center py-16">
+                <BarChart3 className="w-14 h-14 text-neutral-300 mx-auto mb-6" />
+                <p className="text-neutral-500 dark:text-neutral-400 text-lg">No recent activity to display</p>
+                <p className="text-sm text-neutral-400 mt-2">
+                  Activity will appear here as you use the platform
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-{"code":"rate-limited","message":"You have hit the rate limit. Please upgrade to keep chatting.","providerLimitHit":false,"isRetryable":true}
-=======
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Card';
@@ -79,4 +76,3 @@ const CompanyCampaigns: React.FC = () => {
 };
 
 export default CompanyCampaigns;
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))

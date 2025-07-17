@@ -28,13 +28,8 @@ export const Login: React.FC = () => {
           variables: {
             default: {
               colors: {
-<<<<<<< HEAD
-                brand: '#4f46e5',
-                brandAccent: '#4338ca',
-=======
                 brand: 'var(--tw-color-secondary)',
                 brandAccent: 'var(--tw-color-secondary)',
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               },
             },
           },
@@ -46,15 +41,9 @@ export const Login: React.FC = () => {
         view="sign_in"
       />
       <div className="mt-6 text-center">
-<<<<<<< HEAD
-        <p className="text-sm text-gray-600">
-          Don't have an account?{' '}
-          <a href="/auth/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
-=======
         <p className="text-sm text-neutral-600">
           Don't have an account?{' '}
           <a href="/auth/signup" className="font-medium text-secondary hover:text-secondary/90">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
             Sign up
           </a>
         </p>

@@ -63,11 +63,7 @@ export const CompanyBilling: React.FC = () => {
       case 'overdue':
         return 'bg-red-100 text-red-800';
       default:
-<<<<<<< HEAD
-        return 'bg-gray-100 text-gray-800';
-=======
         return 'bg-neutral-100 text-neutral-800';
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
     }
   };
 
@@ -76,13 +72,8 @@ export const CompanyBilling: React.FC = () => {
       <DashboardLayout>
         <div className="space-y-6">
           <div>
-<<<<<<< HEAD
-            <h1 className="text-2xl font-bold text-gray-900">Billing Setup</h1>
-            <p className="text-gray-600">
-=======
             <h1 className="text-2xl font-bold text-neutral-900">Billing Setup</h1>
             <p className="text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               Set up your payment method to start paying agents
             </p>
           </div>
@@ -103,13 +94,8 @@ export const CompanyBilling: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-<<<<<<< HEAD
-            <h1 className="text-2xl font-bold text-gray-900">Billing & Payments</h1>
-            <p className="text-gray-600">
-=======
             <h1 className="text-2xl font-bold text-neutral-900">Billing & Payments</h1>
             <p className="text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               Manage your payment methods and view billing history
             </p>
           </div>
@@ -124,21 +110,12 @@ export const CompanyBilling: React.FC = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
-<<<<<<< HEAD
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <DollarSign className="w-6 h-6 text-blue-600" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-600">Current Balance</p>
-                  <p className="text-2xl font-bold text-gray-900">${mockBilling.currentBalance.toLocaleString()}</p>
-=======
                 <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
                   <DollarSign className="w-6 h-6 text-primary-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">Current Balance</p>
                   <p className="text-2xl font-bold text-neutral-900">${mockBilling.currentBalance.toLocaleString()}</p>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 </div>
               </div>
             </CardContent>
@@ -147,21 +124,12 @@ export const CompanyBilling: React.FC = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
-<<<<<<< HEAD
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-green-600" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-600">This Month</p>
-                  <p className="text-2xl font-bold text-gray-900">${mockBilling.monthlySpend.toLocaleString()}</p>
-=======
                 <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
                   <TrendingUp className="w-6 h-6 text-secondary-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">This Month</p>
                   <p className="text-2xl font-bold text-neutral-900">${mockBilling.monthlySpend.toLocaleString()}</p>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 </div>
               </div>
             </CardContent>
@@ -170,21 +138,12 @@ export const CompanyBilling: React.FC = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
-<<<<<<< HEAD
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <Receipt className="w-6 h-6 text-purple-600" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-600">Total Spent</p>
-                  <p className="text-2xl font-bold text-gray-900">${mockBilling.totalSpent.toLocaleString()}</p>
-=======
                 <div className="w-12 h-12 bg-tertiary-100 rounded-lg flex items-center justify-center">
                   <Receipt className="w-6 h-6 text-tertiary-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">Total Spent</p>
                   <p className="text-2xl font-bold text-neutral-900">${mockBilling.totalSpent.toLocaleString()}</p>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 </div>
               </div>
             </CardContent>
@@ -193,21 +152,12 @@ export const CompanyBilling: React.FC = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
-<<<<<<< HEAD
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                  <Calendar className="w-6 h-6 text-yellow-600" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-600">Next Billing</p>
-                  <p className="text-2xl font-bold text-gray-900">
-=======
                 <div className="w-12 h-12 bg-neutral-100 rounded-lg flex items-center justify-center">
                   <Calendar className="w-6 h-6 text-neutral-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">Next Billing</p>
                   <p className="text-2xl font-bold text-neutral-900">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     {new Date(mockBilling.nextBilling).toLocaleDateString()}
                   </p>
                 </div>
@@ -228,21 +178,12 @@ export const CompanyBilling: React.FC = () => {
           </CardHeader>
           <CardContent>
             <div className="flex items-center">
-<<<<<<< HEAD
-              <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
-                <CreditCard className="w-6 h-6 text-gray-600" />
-              </div>
-              <div>
-                <p className="font-medium text-gray-900">Visa ending in 4242</p>
-                <p className="text-sm text-gray-600">Expires 12/2025</p>
-=======
               <div className="w-12 h-12 bg-neutral-100 rounded-lg flex items-center justify-center mr-4">
                 <CreditCard className="w-6 h-6 text-neutral-600" />
               </div>
               <div>
                 <p className="font-medium text-neutral-900">Visa ending in 4242</p>
                 <p className="text-sm text-neutral-600">Expires 12/2025</p>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               </div>
             </div>
           </CardContent>
@@ -257,16 +198,6 @@ export const CompanyBilling: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-<<<<<<< HEAD
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Invoice</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Date</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Amount</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Campaigns</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Agents</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Status</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Actions</th>
-=======
                   <tr className="border-b border-neutral-200">
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Invoice</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Date</th>
@@ -275,23 +206,10 @@ export const CompanyBilling: React.FC = () => {
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Agents</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Status</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Actions</th>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                   </tr>
                 </thead>
                 <tbody>
                   {mockInvoices.map((invoice) => (
-<<<<<<< HEAD
-                    <tr key={invoice.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-4 px-4 font-medium text-gray-900">{invoice.id}</td>
-                      <td className="py-4 px-4 text-gray-600">
-                        {new Date(invoice.date).toLocaleDateString()}
-                      </td>
-                      <td className="py-4 px-4 font-medium text-gray-900">
-                        ${invoice.amount.toLocaleString()}
-                      </td>
-                      <td className="py-4 px-4 text-gray-600">{invoice.campaigns}</td>
-                      <td className="py-4 px-4 text-gray-600">{invoice.agents}</td>
-=======
                     <tr key={invoice.id} className="border-b border-neutral-100 hover:bg-neutral-100">
                       <td className="py-4 px-4 font-medium text-neutral-900">{invoice.id}</td>
                       <td className="py-4 px-4 text-neutral-600">
@@ -302,7 +220,6 @@ export const CompanyBilling: React.FC = () => {
                       </td>
                       <td className="py-4 px-4 text-neutral-600">{invoice.campaigns}</td>
                       <td className="py-4 px-4 text-neutral-600">{invoice.agents}</td>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                       <td className="py-4 px-4">
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(invoice.status)}`}>
                           {invoice.status}

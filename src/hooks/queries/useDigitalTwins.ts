@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiClient } from '../../lib/apiClient';
 import { supabase } from '../../lib/supabaseClient';
+import type { Database } from '../../types/supabase';
 import { useAuth } from '../useAuth';
 import { useEffect } from 'react';
 
@@ -8,7 +9,7 @@ export const useDigitalTwins = () => {
   const { profile } = useAuth();
   const queryClient = useQueryClient();
 
-  const query = useQuery({
+  const query = useQuery<Database['public']['Tables']['digital_twins']['Row'][]>({
     queryKey: ['digitalTwins', profile?.company_id],
     queryFn: async () => {
       if (!profile?.company_id) return [];

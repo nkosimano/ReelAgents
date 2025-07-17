@@ -54,15 +54,6 @@ export const AdminCompanies: React.FC = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':
-<<<<<<< HEAD
-        return 'bg-green-100 text-green-800';
-      case 'suspended':
-        return 'bg-red-100 text-red-800';
-      case 'pending':
-        return 'bg-yellow-100 text-yellow-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-=======
         return 'bg-success-100 text-success-800';
       case 'suspended':
         return 'bg-danger-100 text-danger-800';
@@ -70,7 +61,6 @@ export const AdminCompanies: React.FC = () => {
         return 'bg-warning-100 text-warning-800';
       default:
         return 'bg-neutral-100 text-neutral-800';
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
     }
   };
 
@@ -79,13 +69,8 @@ export const AdminCompanies: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-<<<<<<< HEAD
-            <h1 className="text-2xl font-bold text-gray-900">Company Management</h1>
-            <p className="text-gray-600">
-=======
             <h1 className="text-2xl font-bold text-neutral-900">Company Management</h1>
             <p className="text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               Monitor and manage all companies on the platform
             </p>
           </div>
@@ -100,21 +85,12 @@ export const AdminCompanies: React.FC = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
-<<<<<<< HEAD
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Building2 className="w-6 h-6 text-blue-600" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-600">Total Companies</p>
-                  <p className="text-2xl font-bold text-gray-900">{mockCompanies.length}</p>
-=======
                 <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
                   <Building2 className="w-6 h-6 text-primary-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">Total Companies</p>
                   <p className="text-2xl font-bold text-neutral-900">{mockCompanies.length}</p>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 </div>
               </div>
             </CardContent>
@@ -123,21 +99,12 @@ export const AdminCompanies: React.FC = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
-<<<<<<< HEAD
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                  <BarChart3 className="w-6 h-6 text-green-600" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-600">Active Campaigns</p>
-                  <p className="text-2xl font-bold text-gray-900">
-=======
                 <div className="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center">
                   <BarChart3 className="w-6 h-6 text-success-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">Active Campaigns</p>
                   <p className="text-2xl font-bold text-neutral-900">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     {mockCompanies.reduce((sum, company) => sum + company.active_campaigns, 0)}
                   </p>
                 </div>
@@ -148,21 +115,12 @@ export const AdminCompanies: React.FC = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
-<<<<<<< HEAD
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <Users className="w-6 h-6 text-purple-600" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-600">Total Agents</p>
-                  <p className="text-2xl font-bold text-gray-900">
-=======
                 <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
                   <Users className="w-6 h-6 text-secondary-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">Total Agents</p>
                   <p className="text-2xl font-bold text-neutral-900">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     {mockCompanies.reduce((sum, company) => sum + company.total_agents, 0)}
                   </p>
                 </div>
@@ -173,21 +131,12 @@ export const AdminCompanies: React.FC = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
-<<<<<<< HEAD
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                  <DollarSign className="w-6 h-6 text-yellow-600" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-600">Platform Revenue</p>
-                  <p className="text-2xl font-bold text-gray-900">
-=======
                 <div className="w-12 h-12 bg-warning-100 rounded-lg flex items-center justify-center">
                   <DollarSign className="w-6 h-6 text-warning-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">Platform Revenue</p>
                   <p className="text-2xl font-bold text-neutral-900">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     ${mockCompanies.reduce((sum, company) => sum + company.total_spent, 0).toLocaleString()}
                   </p>
                 </div>
@@ -205,16 +154,6 @@ export const AdminCompanies: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-<<<<<<< HEAD
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Company</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Status</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Campaigns</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Agents</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Total Spent</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Joined</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Actions</th>
-=======
                   <tr className="border-b border-neutral-200">
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Company</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Status</th>
@@ -223,24 +162,15 @@ export const AdminCompanies: React.FC = () => {
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Total Spent</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Joined</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Actions</th>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                   </tr>
                 </thead>
                 <tbody>
                   {mockCompanies.map((company) => (
-<<<<<<< HEAD
-                    <tr key={company.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-4 px-4">
-                        <div>
-                          <p className="font-medium text-gray-900">{company.name}</p>
-                          <p className="text-sm text-gray-600">{company.email}</p>
-=======
                     <tr key={company.id} className="border-b border-neutral-100 hover:bg-neutral-50">
                       <td className="py-4 px-4">
                         <div>
                           <p className="font-medium text-neutral-900">{company.name}</p>
                           <p className="text-sm text-neutral-600">{company.email}</p>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                         </div>
                       </td>
                       <td className="py-4 px-4">
@@ -248,17 +178,10 @@ export const AdminCompanies: React.FC = () => {
                           {company.status}
                         </span>
                       </td>
-<<<<<<< HEAD
-                      <td className="py-4 px-4 text-gray-900">{company.active_campaigns}</td>
-                      <td className="py-4 px-4 text-gray-900">{company.total_agents}</td>
-                      <td className="py-4 px-4 text-gray-900">${company.total_spent.toLocaleString()}</td>
-                      <td className="py-4 px-4 text-gray-600">
-=======
                       <td className="py-4 px-4 text-neutral-900">{company.active_campaigns}</td>
                       <td className="py-4 px-4 text-neutral-900">{company.total_agents}</td>
                       <td className="py-4 px-4 text-neutral-900">${company.total_spent.toLocaleString()}</td>
                       <td className="py-4 px-4 text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                         {new Date(company.created_at).toLocaleDateString()}
                       </td>
                       <td className="py-4 px-4">
@@ -282,11 +205,7 @@ export const AdminCompanies: React.FC = () => {
                             size="sm"
                             onClick={() => handleSuspendCompany(company.id)}
                           >
-<<<<<<< HEAD
-                            <Trash2 className="w-4 h-4 text-red-500" />
-=======
                             <Trash2 className="w-4 h-4 text-danger-500" />
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                           </Button>
                         </div>
                       </td>

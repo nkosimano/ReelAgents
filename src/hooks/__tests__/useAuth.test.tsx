@@ -8,6 +8,7 @@ vi.mock('../../store/authStore');
 
 describe('useAuth Hook', () => {
   const mockSetUser = vi.fn();
+  const mockSetSession = vi.fn();
   const mockSetProfile = vi.fn();
   const mockSetLoading = vi.fn();
   const mockSignOut = vi.fn();
@@ -16,9 +17,11 @@ describe('useAuth Hook', () => {
     vi.clearAllMocks();
     (useAuthStore as any).mockReturnValue({
       user: null,
+      session: null,
       profile: null,
       loading: false,
       setUser: mockSetUser,
+      setSession: mockSetSession,
       setProfile: mockSetProfile,
       setLoading: mockSetLoading,
       signOut: mockSignOut,
@@ -29,6 +32,7 @@ describe('useAuth Hook', () => {
     const { result } = renderHook(() => useAuth());
     
     expect(result.current.user).toBeNull();
+    expect(result.current.session).toBeNull();
     expect(result.current.profile).toBeNull();
     expect(result.current.loading).toBe(false);
     expect(result.current.isAuthenticated).toBe(false);
@@ -37,9 +41,11 @@ describe('useAuth Hook', () => {
   it('correctly identifies user roles', () => {
     (useAuthStore as any).mockReturnValue({
       user: { id: '1' },
+      session: { access_token: 'mocktoken' },
       profile: { id: '1', email: 'test@example.com', role: 'company' },
       loading: false,
       setUser: mockSetUser,
+      setSession: mockSetSession,
       setProfile: mockSetProfile,
       setLoading: mockSetLoading,
       signOut: mockSignOut,

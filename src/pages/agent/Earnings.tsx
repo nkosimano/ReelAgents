@@ -65,15 +65,9 @@ export const AgentEarnings: React.FC = () => {
       case 'pending':
         return 'bg-yellow-100 text-yellow-800';
       case 'processing':
-<<<<<<< HEAD
-        return 'bg-blue-100 text-blue-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-=======
         return 'bg-primary-100 text-primary-800';
       default:
         return 'bg-neutral-100 text-neutral-800';
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
     }
   };
 
@@ -82,13 +76,8 @@ export const AgentEarnings: React.FC = () => {
       <DashboardLayout>
         <div className="space-y-6">
           <div>
-<<<<<<< HEAD
-            <h1 className="text-2xl font-bold text-gray-900">Earnings Setup</h1>
-            <p className="text-gray-600">
-=======
             <h1 className="text-2xl font-bold text-neutral-900">Earnings Setup</h1>
             <p className="text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               Complete your payout setup to start receiving payments
             </p>
           </div>
@@ -109,13 +98,8 @@ export const AgentEarnings: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-<<<<<<< HEAD
-            <h1 className="text-2xl font-bold text-gray-900">Earnings</h1>
-            <p className="text-gray-600">
-=======
             <h1 className="text-2xl font-bold text-neutral-900">Earnings</h1>
             <p className="text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
               Track your campaign earnings and payout history
             </p>
           </div>
@@ -134,13 +118,8 @@ export const AgentEarnings: React.FC = () => {
                   <DollarSign className="w-6 h-6 text-green-600" />
                 </div>
                 <div className="ml-4">
-<<<<<<< HEAD
-                  <p className="text-sm font-medium text-gray-600">Total Earnings</p>
-                  <p className="text-2xl font-bold text-gray-900">${mockEarnings.total.toLocaleString()}</p>
-=======
                   <p className="text-sm font-medium text-neutral-600">Total Earnings</p>
                   <p className="text-2xl font-bold text-neutral-900">${mockEarnings.total.toLocaleString()}</p>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 </div>
               </div>
             </CardContent>
@@ -149,21 +128,12 @@ export const AgentEarnings: React.FC = () => {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center">
-<<<<<<< HEAD
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-blue-600" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-600">This Month</p>
-                  <p className="text-2xl font-bold text-gray-900">${mockEarnings.thisMonth.toLocaleString()}</p>
-=======
                 <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
                   <TrendingUp className="w-6 h-6 text-primary-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">This Month</p>
                   <p className="text-2xl font-bold text-neutral-900">${mockEarnings.thisMonth.toLocaleString()}</p>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 </div>
               </div>
             </CardContent>
@@ -176,13 +146,8 @@ export const AgentEarnings: React.FC = () => {
                   <Calendar className="w-6 h-6 text-yellow-600" />
                 </div>
                 <div className="ml-4">
-<<<<<<< HEAD
-                  <p className="text-sm font-medium text-gray-600">Pending</p>
-                  <p className="text-2xl font-bold text-gray-900">${mockEarnings.pending.toLocaleString()}</p>
-=======
                   <p className="text-sm font-medium text-neutral-600">Pending</p>
                   <p className="text-2xl font-bold text-neutral-900">${mockEarnings.pending.toLocaleString()}</p>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                 </div>
               </div>
             </CardContent>
@@ -195,13 +160,8 @@ export const AgentEarnings: React.FC = () => {
                   <CreditCard className="w-6 h-6 text-purple-600" />
                 </div>
                 <div className="ml-4">
-<<<<<<< HEAD
-                  <p className="text-sm font-medium text-gray-600">Next Payout</p>
-                  <p className="text-2xl font-bold text-gray-900">
-=======
                   <p className="text-sm font-medium text-neutral-600">Next Payout</p>
                   <p className="text-2xl font-bold text-neutral-900">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                     {new Date(mockEarnings.nextPayout).toLocaleDateString()}
                   </p>
                 </div>
@@ -218,15 +178,6 @@ export const AgentEarnings: React.FC = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-<<<<<<< HEAD
-                <h4 className="font-medium text-gray-900 mb-2">Payout Schedule</h4>
-                <p className="text-gray-600 text-sm mb-1">Weekly payouts every Friday</p>
-                <p className="text-gray-600 text-sm">Last payout: {new Date(mockEarnings.lastPayout).toLocaleDateString()}</p>
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">Payment Method</h4>
-                <div className="flex items-center text-sm text-gray-600">
-=======
                 <h4 className="font-medium text-neutral-900 mb-2">Payout Schedule</h4>
                 <p className="text-neutral-600 text-sm mb-1">Weekly payouts every Friday</p>
                 <p className="text-neutral-600 text-sm">Last payout: {new Date(mockEarnings.lastPayout).toLocaleDateString()}</p>
@@ -234,7 +185,6 @@ export const AgentEarnings: React.FC = () => {
               <div>
                 <h4 className="font-medium text-neutral-900 mb-2">Payment Method</h4>
                 <div className="flex items-center text-sm text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                   <CreditCard className="w-4 h-4 mr-2" />
                   Bank account ending in ****1234
                 </div>
@@ -252,46 +202,26 @@ export const AgentEarnings: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-<<<<<<< HEAD
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Campaign</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Company</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Amount</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Status</th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-900">Date</th>
-=======
                   <tr className="border-b border-neutral-200">
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Campaign</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Company</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Amount</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Status</th>
                     <th className="text-left py-3 px-4 font-medium text-neutral-900">Date</th>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                   </tr>
                 </thead>
                 <tbody>
                   {mockTransactions.map((transaction) => (
-<<<<<<< HEAD
-                    <tr key={transaction.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-4 px-4 font-medium text-gray-900">{transaction.campaign}</td>
-                      <td className="py-4 px-4 text-gray-600">{transaction.company}</td>
-                      <td className="py-4 px-4 font-medium text-gray-900">${transaction.amount.toLocaleString()}</td>
-=======
                     <tr key={transaction.id} className="border-b border-neutral-100 hover:bg-neutral-100">
                       <td className="py-4 px-4 font-medium text-neutral-900">{transaction.campaign}</td>
                       <td className="py-4 px-4 text-neutral-600">{transaction.company}</td>
                       <td className="py-4 px-4 font-medium text-neutral-900">${transaction.amount.toLocaleString()}</td>
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                       <td className="py-4 px-4">
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(transaction.status)}`}>
                           {transaction.status}
                         </span>
                       </td>
-<<<<<<< HEAD
-                      <td className="py-4 px-4 text-gray-600">
-=======
                       <td className="py-4 px-4 text-neutral-600">
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
                         {new Date(transaction.date).toLocaleDateString()}
                       </td>
                     </tr>

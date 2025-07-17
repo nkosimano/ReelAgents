@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-{"code":"rate-limited","message":"You have hit the rate limit. Please upgrade to keep chatting.","providerLimitHit":false,"isRetryable":true}
-=======
 import React, { useRef, useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/Card';
@@ -98,4 +95,4 @@ const DigitalTwinUploader: React.FC = () => {
 };
 
 export default DigitalTwinUploader;
->>>>>>> 3b800f1 (Initial commit (local merge with cloud))
+export { DigitalTwinUploader };
