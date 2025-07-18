@@ -92,7 +92,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
   const userRole = profile?.role || 'guest';
 
   return (
-    <div className="min-h-screen bg-neutral-100 dark:bg-neutral-900">
+    <div className="min-h-screen bg-page">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div 
@@ -104,8 +104,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
       {/* Sidebar */}
       <div className={`fixed inset-y-0 left-0 z-30 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } dark:bg-neutral-800`}>
-        <div className="flex items-center justify-between h-16 px-6 border-b border-neutral-200 dark:border-neutral-700">
+      } bg-surface`}>
+        <div className="flex items-center justify-between h-16 px-6 border-b border-default">
           <h1 className="text-xl font-bold text-primary">ReelAgents</h1>
           <div className="flex items-center space-x-2">
             <ThemeToggle />
@@ -125,7 +125,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
           <RoleBasedNav userRole={userRole} currentPath={location.pathname} />
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-neutral-200 dark:border-neutral-700">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-default">
           <div className="flex items-center mb-3 gap-2">
             <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
               <span className="text-white text-sm font-medium">
@@ -133,18 +133,18 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
               </span>
             </div>
             <div className="ml-3 flex flex-col justify-center gap-1 min-w-0">
-              <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100 text-left break-all truncate max-w-[140px]">{profile?.email}</p>
+              <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100 text-left truncate-1 max-w-[140px]">{profile?.email}</p>
               <div className="flex items-center space-x-2 mt-1">
-                <p className="text-xs text-neutral-500 dark:text-neutral-400 capitalize text-left">{profile?.role}</p>
+                <p className="text-xs text-body-secondary capitalize text-left">{profile?.role}</p>
                 {isAdmin && <Shield className="w-3 h-3 text-danger" />}
                 {profile?.role === 'company' && <Building2 className="w-3 h-3 text-info" />}
                 {profile?.role === 'agent' && <UserCheck className="w-3 h-3 text-success" />}
               </div>
-            </div>
+            className={`nav-link ${
           </div>
-          <button
-            onClick={signOut}
-            className="flex items-center w-full px-3 py-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                ? 'nav-link-active'
+                : 'nav-link-inactive'
+            className="nav-link nav-link-inactive w-full"
           >
             <LogOut className="w-5 h-5 mr-3" />
             Sign Out
@@ -155,7 +155,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
       {/* Main content */}
       <div>
         {/* Top bar */}
-        <div className="sticky top-0 z-10 bg-white dark:bg-neutral-800 shadow-sm border-b border-neutral-200 dark:border-neutral-700">
+        <div className="sticky top-0 z-10 bg-surface shadow-sm border-b border-default">
           <div className="flex items-center justify-between h-16 px-6">
             <button
               onClick={() => {
@@ -173,7 +173,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
           </div>
         </div>
         {/* Page content */}
-        <main className="p-6 flex flex-col items-center justify-center w-full min-h-[calc(100vh-4rem)]">
+        <main className="p-6 container-center">
           {children}
         </main>
       </div>

@@ -14,30 +14,28 @@ export const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   return (
-    <div className="space-y-1">
+    <div className="form-group">
       {label && (
-        <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
+        <label className="input-label">
           {label}
         </label>
       )}
       <input
         className={`
-          w-full px-3 py-2 border rounded-lg shadow-sm transition-colors bg-white dark:bg-neutral-800
-          focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary
-          text-neutral-900 dark:text-neutral-100
+          input
           ${error 
-            ? 'border-danger focus:ring-danger focus:border-danger' 
-            : 'border-neutral-300 dark:border-neutral-600'
+            ? 'input-error' 
+            : 'input-normal'
           }
           ${className}
         `}
         {...props}
       />
       {error && (
-        <p className="text-sm text-danger">{error}</p>
+        <p className="input-error-text">{error}</p>
       )}
       {helperText && !error && (
-        <p className="text-sm text-neutral-500 dark:text-neutral-400">{helperText}</p>
+        <p className="input-helper">{helperText}</p>
       )}
     </div>
   );
@@ -57,30 +55,28 @@ export const Textarea: React.FC<TextareaProps> = ({
   ...props
 }) => {
   return (
-    <div className="space-y-1">
+    <div className="form-group">
       {label && (
-        <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
+        <label className="input-label">
           {label}
         </label>
       )}
       <textarea
         className={`
-          w-full px-3 py-2 border rounded-lg shadow-sm transition-colors resize-none bg-white dark:bg-neutral-800
-          focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary
-          text-neutral-900 dark:text-neutral-100
+          input resize-none
           ${error 
-            ? 'border-danger focus:ring-danger focus:border-danger' 
-            : 'border-neutral-300 dark:border-neutral-600'
+            ? 'input-error' 
+            : 'input-normal'
           }
           ${className}
         `}
         {...props}
       />
       {error && (
-        <p className="text-sm text-danger">{error}</p>
+        <p className="input-error-text">{error}</p>
       )}
       {helperText && !error && (
-        <p className="text-sm text-neutral-500 dark:text-neutral-400">{helperText}</p>
+        <p className="input-helper">{helperText}</p>
       )}
     </div>
   );

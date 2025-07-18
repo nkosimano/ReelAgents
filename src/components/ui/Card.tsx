@@ -11,15 +11,10 @@ export const Card: React.FC<CardProps> = ({
   className = '', 
   padding = 'md' 
 }) => {
-  const paddingClasses = {
-    none: '',
-    sm: 'p-4',
-    md: 'p-6',
-    lg: 'p-8',
-  };
+  const paddingClass = `card-padding-${padding}`;
 
   return (
-    <div className={`bg-white dark:bg-neutral-800 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 ${paddingClasses[padding]} ${className}`}>
+    <div className={`card ${paddingClass} ${className}`}>
       {children}
     </div>
   );
@@ -32,7 +27,7 @@ interface CardHeaderProps {
 
 export const CardHeader: React.FC<CardHeaderProps> = ({ children, className = '' }) => {
   return (
-    <div className={`border-b border-neutral-200 dark:border-neutral-700 pb-4 mb-4 ${className}`}>
+    <div className={`card-header ${className}`}>
       {children}
     </div>
   );
@@ -45,7 +40,7 @@ interface CardTitleProps {
 
 export const CardTitle: React.FC<CardTitleProps> = ({ children, className = '' }) => {
   return (
-    <h3 className={`text-lg font-semibold text-neutral-900 dark:text-neutral-100 ${className}`}>
+    <h3 className={`card-title ${className}`}>
       {children}
     </h3>
   );

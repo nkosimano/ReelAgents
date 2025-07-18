@@ -1,0 +1,237 @@
+/* Utility classes */
+@tailwind utilities;
+
+@layer utilities {
+  /* Layout utilities */
+  .container-center {
+    @apply flex justify-center items-center w-full min-h-[calc(100vh-4rem)];
+  }
+
+  .container-max {
+    @apply w-full max-w-5xl;
+  }
+
+  /* Spacing utilities */
+  .space-section {
+    @apply space-y-10;
+  }
+
+  .space-content {
+    @apply space-y-6;
+  }
+
+  .space-form {
+    @apply space-y-4;
+  }
+
+  .space-tight {
+    @apply space-y-2;
+  }
+
+  /* Text utilities */
+  .text-heading-1 {
+    @apply text-3xl font-extrabold text-neutral-900 dark:text-neutral-100;
+  }
+
+  .text-heading-2 {
+    @apply text-2xl font-bold text-neutral-900 dark:text-neutral-100;
+  }
+
+  .text-heading-3 {
+    @apply text-xl font-semibold text-neutral-900 dark:text-neutral-100;
+  }
+
+  .text-heading-4 {
+    @apply text-lg font-semibold text-neutral-900 dark:text-neutral-100;
+  }
+
+  .text-body {
+    @apply text-neutral-600 dark:text-neutral-400;
+  }
+
+  .text-body-secondary {
+    @apply text-neutral-500 dark:text-neutral-500;
+  }
+
+  .text-muted {
+    @apply text-neutral-400 dark:text-neutral-500;
+  }
+
+  /* Background utilities */
+  .bg-page {
+    @apply bg-neutral-100 dark:bg-neutral-900;
+  }
+
+  .bg-surface {
+    @apply bg-white dark:bg-neutral-800;
+  }
+
+  .bg-surface-secondary {
+    @apply bg-neutral-50 dark:bg-neutral-800/50;
+  }
+
+  /* Border utilities */
+  .border-default {
+    @apply border-neutral-200 dark:border-neutral-700;
+  }
+
+  .border-light {
+    @apply border-neutral-100 dark:border-neutral-800;
+  }
+
+  /* Shadow utilities */
+  .shadow-card {
+    @apply shadow-sm;
+  }
+
+  .shadow-elevated {
+    @apply shadow-lg;
+  }
+
+  /* Interactive utilities */
+  .hover-lift {
+    @apply transition-transform hover:-translate-y-1;
+  }
+
+  .hover-scale {
+    @apply transition-transform hover:scale-105;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  /* Loading states */
+  .loading-skeleton {
+    @apply animate-pulse bg-neutral-200 dark:bg-neutral-700 rounded;
+  }
+
+  .loading-overlay {
+    @apply absolute inset-0 bg-white/50 dark:bg-neutral-900/50 flex items-center justify-center;
+  }
+
+  /* Responsive utilities */
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .responsive-flex {
+    @apply flex flex-col sm:flex-row items-start sm:items-center gap-4;
+  }
+
+  /* Status utilities */
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-dot-success {
+    @apply bg-success;
+  }
+
+  .status-dot-warning {
+    @apply bg-warning;
+  }
+
+  .status-dot-danger {
+    @apply bg-danger;
+  }
+
+  .status-dot-info {
+    @apply bg-info;
+  }
+
+  /* Truncation utilities */
+  .truncate-1 {
+    @apply truncate;
+  }
+
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn {
+    @apply border-2;
+  }
+  
+  .card {
+    @apply border-2;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
