@@ -1,0 +1,140 @@
+/* Dashboard Layout Styles */
+.layout {
+  @apply min-h-screen bg-page;
+}
+
+.sidebarBackdrop {
+  @apply fixed inset-0 bg-neutral-600 bg-opacity-75 z-20 lg:hidden;
+}
+
+.sidebar {
+  @apply fixed inset-y-0 left-0 z-30 w-64 bg-surface shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0;
+}
+
+.sidebar--open {
+  @apply translate-x-0;
+}
+
+.sidebar--closed {
+  @apply -translate-x-full;
+}
+
+.sidebarHeader {
+  @apply flex items-center justify-between h-16 px-6 border-b border-default;
+}
+
+.logo {
+  @apply text-xl font-bold text-primary;
+}
+
+.headerActions {
+  @apply flex items-center space-x-2;
+}
+
+.mobileCloseButton {
+  @apply lg:hidden p-2 rounded-md text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300;
+}
+
+.navigation {
+  @apply mt-6 px-3;
+}
+
+.navList {
+  @apply space-y-1;
+}
+
+.navLink {
+  @apply flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors;
+}
+
+.navLink--active {
+  @apply bg-primary bg-opacity-10 text-primary dark:bg-primary dark:bg-opacity-20;
+}
+
+.navLink--inactive {
+  @apply text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 hover:text-neutral-900 dark:hover:text-neutral-100;
+}
+
+.navIcon {
+  @apply w-5 h-5 mr-3;
+}
+
+.userSection {
+  @apply absolute bottom-0 left-0 right-0 p-4 border-t border-default;
+}
+
+.userInfo {
+  @apply flex items-center mb-3 gap-2;
+}
+
+.userAvatar {
+  @apply w-8 h-8 bg-secondary rounded-full flex items-center justify-center;
+}
+
+.userAvatarText {
+  @apply text-white text-sm font-medium;
+}
+
+.userDetails {
+  @apply ml-3 flex flex-col justify-center gap-1 min-w-0;
+}
+
+.userEmail {
+  @apply text-sm font-medium text-neutral-900 dark:text-neutral-100 text-left truncate max-w-[140px];
+}
+
+.userRole {
+  @apply flex items-center space-x-2 mt-1;
+}
+
+.userRoleText {
+  @apply text-xs text-body-secondary capitalize text-left;
+}
+
+.roleIcon {
+  @apply w-3 h-3;
+}
+
+.roleIcon--admin {
+  @apply text-danger;
+}
+
+.roleIcon--company {
+  @apply text-info;
+}
+
+.roleIcon--agent {
+  @apply text-success;
+}
+
+.signOutButton {
+  @apply nav-link nav-link-inactive w-full;
+}
+
+.mainContent {
+  @apply lg:ml-64;
+}
+
+.topBar {
+  @apply sticky top-0 z-10 bg-surface shadow-sm border-b border-default;
+}
+
+.topBarContent {
+  @apply flex items-center justify-between h-16 px-6;
+}
+
+.mobileMenuButton {
+  @apply lg:hidden p-2 rounded-md text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300;
+}
+
+.topBarSpacer {
+  @apply flex-1;
+}
+
+.desktopThemeToggle {
+  @apply hidden lg:block;
+}
+
+.pageContent {
+  @apply p-6 container-center;
+}

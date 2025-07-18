@@ -3,6 +3,7 @@ import { DashboardLayout } from '../../components/layouts/DashboardLayout';
 import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Building2, Users, BarChart3, DollarSign, Eye, Edit, Trash2 } from 'lucide-react';
+import styles from './Companies.module.css';
 
 // Mock data for companies
 const mockCompanies = [
@@ -67,26 +68,152 @@ export const AdminCompanies: React.FC = () => {
   return (
     <DashboardLayout>
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-neutral-900">Company Management</h1>
-            <p className="text-neutral-600">
+        <div className={styles.pageHeader}>
+          <div className={styles.headerContent}>
+            <h1 className={styles.pageTitle}>Company Management</h1>
+            <p className={styles.pageDescription}>
               Monitor and manage all companies on the platform
             </p>
           </div>
-          <Button>
+          <Button className={styles.addButton}>
             <Building2 className="w-4 h-4 mr-2" />
             Add Company
           </Button>
         </div>
 
         {/* Summary Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                  <Building2 className="w-6 h-6 text-primary-600" />
+        <div className={styles.statsGrid}>
+          <div className={styles.statCard}>
+            <div className="flex items-center">
+              <div className={`${styles.statIcon} ${styles['statIcon--primary']}`}>
+                <Building2 className="w-6 h-6" />
+              </div>
+              <div className={styles.statContent}>
+                <p className={styles.statLabel}>Total Companies</p>
+                <p className={styles.statValue}>{mockCompanies.length}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.statCard}>
+            <div className="flex items-center">
+              <div className={`${styles.statIcon} ${styles['statIcon--success']}`}>
+                <BarChart3 className="w-6 h-6" />
+              </div>
+              <div className={styles.statContent}>
+                <p className={styles.statLabel}>Active Campaigns</p>
+                <p className={styles.statValue}>
+                  {mockCompanies.reduce((sum, company) => sum + company.active_campaigns, 0)}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.statCard}>
+            <div className="flex items-center">
+              <div className={`${styles.statIcon} ${styles['statIcon--secondary']}`}>
+                <Users className="w-6 h-6" />
+              </div>
+              <div className={styles.statContent}>
+                <p className={styles.statLabel}>Total Agents</p>
+                <p className={styles.statValue}>
+                  {mockCompanies.reduce((sum, company) => sum + company.total_agents, 0)}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.statCard}>
+            <div className="flex items-center">
+              <div className={`${styles.statIcon} ${styles['statIcon--warning']}`}>
+                <DollarSign className="w-6 h-6" />
+              </div>
+              <div className={styles.statContent}>
+                <p className={styles.statLabel}>Platform Revenue</p>
+                <p className={styles.statValue}>
+                  ${mockCompanies.reduce((sum, company) => sum + company.total_spent, 0).toLocaleString()}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Companies Table */}
+        <div className={styles.companiesTable}>
+          <div className={styles.tableHeader}>
+            <h3 className={styles.tableTitle}>All Companies</h3>
+          </div>
+          <div className={styles.tableContent}>
+            <table className={styles.table}>
+              <thead>
+                <tr className={styles.tableHeaderRow}>
+                  <th className={styles.tableHeaderCell}>Company</th>
+                  <th className={styles.tableHeaderCell}>Status</th>
+                  <th className={styles.tableHeaderCell}>Campaigns</th>
+                  <th className={styles.tableHeaderCell}>Agents</th>
+                  <th className={styles.tableHeaderCell}>Total Spent</th>
+                  <th className={styles.tableHeaderCell}>Joined</th>
+                  <th className={styles.tableHeaderCell}>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {mockCompanies.map((company) => (
+                  <tr key={company.id} className={styles.tableRow}>
+                    <td className={styles.tableCell}>
+                      <div className={styles.companyInfo}>
+                        <p className={styles.companyName}>{company.name}</p>
+                        <p className={styles.companyEmail}>{company.email}</p>
+                      </div>
+                    </td>
+                    <td className={styles.tableCell}>
+                      <span className={`${styles.statusBadge} ${styles[`statusBadge--${company.status}`]}`}>
+                        {company.status}
+                      </span>
+                    </td>
+                    <td className={styles.tableCell}>{company.active_campaigns}</td>
+                    <td className={styles.tableCell}>{company.total_agents}</td>
+                    <td className={styles.tableCell}>${company.total_spent.toLocaleString()}</td>
+                    <td className={styles.tableCell}>
+                      {new Date(company.created_at).toLocaleDateString()}
+                    </td>
+                    <td className={styles.tableCell}>
+                      <div className={styles.actionButtons}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleViewCompany(company.id)}
+                          className={styles.actionButton}
+                        >
+                          <Eye className="w-4 h-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleEditCompany(company.id)}
+                          className={styles.actionButton}
+                        >
+                          <Edit className="w-4 h-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleSuspendCompany(company.id)}
+                          className={`${styles.actionButton} ${styles['actionButton--danger']}`}
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </DashboardLayout>
+  );
+};
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-neutral-600">Total Companies</p>

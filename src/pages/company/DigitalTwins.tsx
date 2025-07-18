@@ -2,23 +2,24 @@ import React from 'react';
 import { DashboardLayout } from '../../components/layouts/DashboardLayout';
 import DigitalTwinUploader from '../../components/digital-twins/DigitalTwinUploader';
 import { DigitalTwinsList } from '../../components/digital-twins/DigitalTwinsList';
+import styles from './DigitalTwins.module.css';
 
 export const DigitalTwins: React.FC = () => {
   return (
     <DashboardLayout>
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Digital Twins</h1>
-          <p className="text-neutral-600 dark:text-neutral-400">
+        <div className={styles.pageHeader}>
+          <h1 className={styles.pageTitle}>Digital Twins</h1>
+          <p className={styles.pageDescription}>
             Create and manage AI-powered digital twins for your marketing campaigns.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-1">
+        <div className={styles.contentGrid}>
+          <div className={styles.uploaderSection}>
             <DigitalTwinUploader />
           </div>
-          <div className="lg:col-span-2">
+          <div className={styles.listSection}>
             <DigitalTwinsList />
           </div>
         </div>

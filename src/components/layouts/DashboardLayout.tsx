@@ -18,6 +18,7 @@ import { useState } from 'react';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { Link, useLocation } from 'react-router-dom';
 import { supabase } from '../../lib/supabaseClient';
+import styles from './DashboardLayout.module.css';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -59,18 +60,18 @@ const RoleBasedNav: React.FC<{ userRole: string; currentPath: string }> = ({ use
   const navigationItems = getNavigationItems();
 
   return (
-    <div className="space-y-1">
+    <div className={styles.navList}>
       {navigationItems.map((item) => (
         <Link
           key={item.name}
           to={item.href}
-          className={`flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+          className={`${styles.navLink} ${
             currentPath === item.href
-              ? 'bg-primary bg-opacity-10 text-primary dark:bg-primary dark:bg-opacity-20'
-              : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 hover:text-neutral-900 dark:hover:text-neutral-100'
+              ? styles['navLink--active']
+              : styles['navLink--inactive']
           }`}
         >
-          <item.icon className="w-5 h-5 mr-3" />
+          <item.icon className={styles.navIcon} />
           {item.name}
         </Link>
       ))}
@@ -92,88 +93,88 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
   const userRole = profile?.role || 'guest';
 
   return (
-    <div className="min-h-screen bg-page">
+    <div className={styles.layout}>
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div 
-          className="fixed inset-0 bg-neutral-600 bg-opacity-75 z-20 lg:hidden"
+          className={styles.sidebarBackdrop}
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-30 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } bg-surface`}>
-        <div className="flex items-center justify-between h-16 px-6 border-b border-default">
-          <h1 className="text-xl font-bold text-primary">ReelAgents</h1>
-          <div className="flex items-center space-x-2">
+      <div className={`${styles.sidebar} ${
+        sidebarOpen ? styles['sidebar--open'] : styles['sidebar--closed']
+      }`}>
+        <div className={styles.sidebarHeader}>
+          <h1 className={styles.logo}>ReelAgents</h1>
+          <div className={styles.headerActions}>
             <ThemeToggle />
             <button
               onClick={() => {
                 setSidebarOpen(false);
                 console.log('[Sidebar] Closed');
               }}
-              className="lg:hidden p-2 rounded-md text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
+              className={styles.mobileCloseButton}
             >
               <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <nav className="mt-6 px-3">
+        <nav className={styles.navigation}>
           <RoleBasedNav userRole={userRole} currentPath={location.pathname} />
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-default">
-          <div className="flex items-center mb-3 gap-2">
-            <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
-              <span className="text-white text-sm font-medium">
+        <div className={styles.userSection}>
+          <div className={styles.userInfo}>
+            <div className={styles.userAvatar}>
+              <span className={styles.userAvatarText}>
                 {profile?.email?.charAt(0).toUpperCase()}
               </span>
             </div>
-            <div className="ml-3 flex flex-col justify-center gap-1 min-w-0">
-              <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100 text-left truncate-1 max-w-[140px]">{profile?.email}</p>
-              <div className="flex items-center space-x-2 mt-1">
-                <p className="text-xs text-body-secondary capitalize text-left">{profile?.role}</p>
-                {isAdmin && <Shield className="w-3 h-3 text-danger" />}
-                {profile?.role === 'company' && <Building2 className="w-3 h-3 text-info" />}
-                {profile?.role === 'agent' && <UserCheck className="w-3 h-3 text-success" />}
+            <div className={styles.userDetails}>
+              <p className={styles.userEmail}>{profile?.email}</p>
+              <div className={styles.userRole}>
+                <p className={styles.userRoleText}>{profile?.role}</p>
+                {isAdmin && <Shield className={`${styles.roleIcon} ${styles['roleIcon--admin']}`} />}
+                {profile?.role === 'company' && <Building2 className={`${styles.roleIcon} ${styles['roleIcon--company']}`} />}
+                {profile?.role === 'agent' && <UserCheck className={`${styles.roleIcon} ${styles['roleIcon--agent']}`} />}
               </div>
             className={`nav-link ${
           </div>
                 ? 'nav-link-active'
                 : 'nav-link-inactive'
-            className="nav-link nav-link-inactive w-full"
+            className={styles.signOutButton}
           >
-            <LogOut className="w-5 h-5 mr-3" />
+            <LogOut className={styles.navIcon} />
             Sign Out
           </button>
         </div>
       </div>
 
       {/* Main content */}
-      <div>
+      <div className={styles.mainContent}>
         {/* Top bar */}
-        <div className="sticky top-0 z-10 bg-surface shadow-sm border-b border-default">
-          <div className="flex items-center justify-between h-16 px-6">
+        <div className={styles.topBar}>
+          <div className={styles.topBarContent}>
             <button
               onClick={() => {
                 setSidebarOpen(true);
                 console.log('[Sidebar] Opened');
               }}
-              className="lg:hidden p-2 rounded-md text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
+              className={styles.mobileMenuButton}
             >
               <Menu className="w-5 h-5" />
             </button>
-            <div className="flex-1" />
-            <div className="hidden lg:block">
+            <div className={styles.topBarSpacer} />
+            <div className={styles.desktopThemeToggle}>
               <ThemeToggle />
             </div>
           </div>
         </div>
         {/* Page content */}
-        <main className="p-6 container-center">
+        <main className={styles.pageContent}>
           {children}
         </main>
       </div>

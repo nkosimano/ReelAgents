@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
 import { AuthLayout } from '../../components/layouts/AuthLayout';
 import { ArrowLeft, Mail } from 'lucide-react';
+import styles from './Login.module.css';
 
 export const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -37,18 +38,18 @@ export const ForgotPassword: React.FC = () => {
         title="Check Your Email" 
         subtitle="We've sent you a password reset link"
       >
-        <div className="text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Mail className="w-8 h-8 text-green-600" />
+        <div className={styles.successState}>
+          <div className={styles.successIcon}>
+            <Mail className={styles.successIconSvg} />
           </div>
-          <p className="text-neutral-600 mb-6">
-            If an account with email <strong>{email}</strong> exists, you will receive a password reset link shortly.
+          <p className={styles.successText}>
+            If an account with email <span className={styles.emailHighlight}>{email}</span> exists, you will receive a password reset link shortly.
           </p>
           <a
             href="/auth/login"
-            className="inline-flex items-center text-secondary hover:text-secondary/90 font-medium"
+            className={styles.backLink}
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className={styles.backIcon} />
             Back to sign in
           </a>
         </div>
@@ -61,15 +62,15 @@ export const ForgotPassword: React.FC = () => {
       title="Reset Password" 
       subtitle="Enter your email to receive a reset link"
     >
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className={styles.authForm}>
         {error && (
-          <div className="bg-red-50 border border-red-200 rounded-md p-4">
-            <p className="text-sm text-red-600">{error}</p>
+          <div className={styles.errorAlert}>
+            <p className={styles.errorText}>{error}</p>
           </div>
         )}
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
+        <div className={styles.formGroup}>
+          <label htmlFor="email" className={styles.formLabel}>
             Email address
           </label>
           <input
@@ -78,7 +79,7 @@ export const ForgotPassword: React.FC = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-3 py-2 border border-neutral-300 rounded-md shadow-sm focus:outline-none focus:ring-secondary focus:border-secondary"
+            className={styles.formInput}
             placeholder="Enter your email"
           />
         </div>
@@ -86,18 +87,18 @@ export const ForgotPassword: React.FC = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+          className={styles.submitButton}
         >
           {loading ? 'Sending...' : 'Send Reset Link'}
         </button>
       </form>
 
-      <div className="mt-6 text-center">
+      <div className={styles.authFooter}>
         <a
           href="/auth/login"
-          className="inline-flex items-center text-secondary hover:text-secondary/90 font-medium"
+          className={styles.backLink}
         >
-          <ArrowLeft className="w-4 h-4 mr-2" />
+          <ArrowLeft className={styles.backIcon} />
           Back to sign in
         </a>
       </div>

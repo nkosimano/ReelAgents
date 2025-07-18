@@ -1,0 +1,156 @@
+/* Agent Profile Page Styles */
+.pageHeader {
+  @apply space-y-2;
+}
+
+.pageTitle {
+  @apply text-2xl font-bold text-neutral-900 dark:text-neutral-100;
+}
+
+.pageDescription {
+  @apply text-neutral-600 dark:text-neutral-400;
+}
+
+.contentGrid {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+}
+
+.sidebarSection {
+  @apply lg:col-span-1 space-y-4;
+}
+
+.mainSection {
+  @apply lg:col-span-2;
+}
+
+.certificationCard {
+  @apply card card-padding-md;
+}
+
+.certificationHeader {
+  @apply card-header;
+}
+
+.certificationTitle {
+  @apply flex items-center card-title;
+}
+
+.certificationIcon {
+  @apply w-5 h-5 mr-2 text-green-600;
+}
+
+.certificationContent {
+  @apply text-center;
+}
+
+.certificationBadge {
+  @apply w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4;
+}
+
+.certificationBadgeIcon {
+  @apply w-8 h-8 text-yellow-600;
+}
+
+.certificationStatus {
+  @apply font-medium text-neutral-900 dark:text-neutral-100 mb-2;
+}
+
+.certificationDescription {
+  @apply text-sm text-neutral-600 dark:text-neutral-400 mb-4;
+}
+
+.certificationButton {
+  @apply btn btn-outline btn-sm;
+}
+
+.statsCard {
+  @apply card card-padding-md;
+}
+
+.statsHeader {
+  @apply card-header;
+}
+
+.statsTitle {
+  @apply card-title;
+}
+
+.statsContent {
+  @apply space-y-4;
+}
+
+.statItem {
+  @apply flex items-center justify-between;
+}
+
+.statLabel {
+  @apply flex items-center;
+}
+
+.statIcon {
+  @apply w-4 h-4 mr-2;
+}
+
+.statIcon--rating {
+  @apply text-yellow-500;
+}
+
+.statIcon--campaigns {
+  @apply text-primary-500;
+}
+
+.statIcon--earnings {
+  @apply text-green-500;
+}
+
+.statText {
+  @apply text-sm text-neutral-600 dark:text-neutral-400;
+}
+
+.statValue {
+  @apply font-medium text-neutral-900 dark:text-neutral-100;
+}
+
+.profileCard {
+  @apply card card-padding-md;
+}
+
+.profileHeader {
+  @apply flex items-center justify-between card-header;
+}
+
+.profileTitle {
+  @apply card-title;
+}
+
+.editButton {
+  @apply btn btn-outline btn-sm;
+}
+
+.profileForm {
+  @apply space-y-6;
+}
+
+.formGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.formActions {
+  @apply flex justify-end space-x-3;
+}
+
+.cancelButton {
+  @apply btn btn-outline btn-md;
+}
+
+.saveButton {
+  @apply btn btn-primary btn-md;
+}
+
+.disabledInput {
+  @apply opacity-60 cursor-not-allowed;
+}
+
+.helperText {
+  @apply text-sm text-neutral-500 dark:text-neutral-400;
+}

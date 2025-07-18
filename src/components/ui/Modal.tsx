@@ -1,5 +1,6 @@
 import React from 'react';
 import { X } from 'lucide-react';
+import styles from './Modal.module.css';
 
 interface ModalProps {
   isOpen: boolean;
@@ -18,32 +19,30 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   if (!isOpen) return null;
 
-  const sizeClass = `modal-${size}`;
-
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
-      <div className="modal-container">
+      <div className={styles.container}>
         {/* Backdrop */}
         <div 
-          className="modal-backdrop"
+          className={`${styles.backdrop} ${styles.fadeIn}`}
           onClick={onClose}
         />
         
         {/* Modal */}
-        <div className={`modal-content ${sizeClass}`}>
+        <div className={`${styles.content} ${styles[`content--${size}`]} ${styles.slideUp}`}>
           {/* Header */}
-          <div className="modal-header">
-            <h3 className="modal-title">{title}</h3>
+          <div className={styles.header}>
+            <h3 className={styles.title}>{title}</h3>
             <button
               onClick={onClose}
-              className="modal-close"
+              className={styles.closeButton}
             >
               <X className="w-5 h-5" />
             </button>
           </div>
           
           {/* Content */}
-          <div className="modal-body">
+          <div className={styles.body}>
             {children}
           </div>
         </div>

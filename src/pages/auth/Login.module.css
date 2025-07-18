@@ -1,0 +1,92 @@
+/* Login Page Styles */
+.authContainer {
+  @apply min-h-screen bg-gradient-to-br from-neutral-50 to-primary/10 dark:from-neutral-900 dark:to-primary/20 flex items-center justify-center p-4;
+}
+
+.authCard {
+  @apply max-w-md w-full bg-white dark:bg-neutral-800 rounded-2xl shadow-xl p-8;
+}
+
+.authHeader {
+  @apply text-center mb-8;
+}
+
+.authTitle {
+  @apply text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2;
+}
+
+.authSubtitle {
+  @apply text-neutral-600 dark:text-neutral-400;
+}
+
+.authForm {
+  @apply space-y-6;
+}
+
+.formGroup {
+  @apply space-y-2;
+}
+
+.formLabel {
+  @apply block text-sm font-medium text-neutral-700 dark:text-neutral-300;
+}
+
+.formInput {
+  @apply w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-md shadow-sm focus:outline-none focus:ring-secondary focus:border-secondary bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100;
+}
+
+.submitButton {
+  @apply w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.errorAlert {
+  @apply bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-4;
+}
+
+.errorText {
+  @apply text-sm text-red-600 dark:text-red-400;
+}
+
+.authFooter {
+  @apply mt-6 text-center;
+}
+
+.footerText {
+  @apply text-sm text-neutral-600 dark:text-neutral-400;
+}
+
+.footerLink {
+  @apply font-medium text-secondary hover:text-secondary/90 transition-colors;
+}
+
+.forgotLink {
+  @apply text-sm text-secondary hover:text-secondary/90 font-medium;
+}
+
+.backLink {
+  @apply inline-flex items-center text-secondary hover:text-secondary/90 font-medium;
+}
+
+.backIcon {
+  @apply w-4 h-4 mr-2;
+}
+
+.successState {
+  @apply text-center;
+}
+
+.successIcon {
+  @apply w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4;
+}
+
+.successIconSvg {
+  @apply w-8 h-8 text-green-600 dark:text-green-400;
+}
+
+.successText {
+  @apply text-neutral-600 dark:text-neutral-400 mb-6;
+}
+
+.emailHighlight {
+  @apply font-semibold text-neutral-900 dark:text-neutral-100;
+}

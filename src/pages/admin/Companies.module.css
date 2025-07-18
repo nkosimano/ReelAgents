@@ -1,0 +1,136 @@
+/* Admin Companies Page Styles */
+.pageHeader {
+  @apply flex items-center justify-between;
+}
+
+.headerContent {
+  @apply space-y-1;
+}
+
+.pageTitle {
+  @apply text-2xl font-bold text-neutral-900 dark:text-neutral-100;
+}
+
+.pageDescription {
+  @apply text-neutral-600 dark:text-neutral-400;
+}
+
+.addButton {
+  @apply btn btn-primary btn-md;
+}
+
+.statsGrid {
+  @apply grid grid-cols-1 md:grid-cols-4 gap-6;
+}
+
+.statCard {
+  @apply stats-card;
+}
+
+.statIcon {
+  @apply stats-icon;
+}
+
+.statIcon--primary {
+  @apply bg-primary-100 text-primary-600;
+}
+
+.statIcon--success {
+  @apply bg-success-100 text-success-600;
+}
+
+.statIcon--secondary {
+  @apply bg-secondary-100 text-secondary-600;
+}
+
+.statIcon--warning {
+  @apply bg-warning-100 text-warning-600;
+}
+
+.statContent {
+  @apply stats-content;
+}
+
+.statLabel {
+  @apply stats-label;
+}
+
+.statValue {
+  @apply stats-value;
+}
+
+.companiesTable {
+  @apply card;
+}
+
+.tableHeader {
+  @apply card-header;
+}
+
+.tableTitle {
+  @apply card-title;
+}
+
+.tableContent {
+  @apply overflow-x-auto;
+}
+
+.table {
+  @apply w-full;
+}
+
+.tableHeaderRow {
+  @apply border-b border-neutral-200 dark:border-neutral-700;
+}
+
+.tableHeaderCell {
+  @apply text-left py-3 px-4 font-medium text-neutral-900 dark:text-neutral-100;
+}
+
+.tableRow {
+  @apply border-b border-neutral-100 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800/50;
+}
+
+.tableCell {
+  @apply py-4 px-4;
+}
+
+.companyInfo {
+  @apply space-y-1;
+}
+
+.companyName {
+  @apply font-medium text-neutral-900 dark:text-neutral-100;
+}
+
+.companyEmail {
+  @apply text-sm text-neutral-600 dark:text-neutral-400;
+}
+
+.statusBadge {
+  @apply status-badge;
+}
+
+.statusBadge--active {
+  @apply status-active;
+}
+
+.statusBadge--suspended {
+  @apply status-failed;
+}
+
+.statusBadge--pending {
+  @apply status-pending;
+}
+
+.actionButtons {
+  @apply flex items-center space-x-2;
+}
+
+.actionButton {
+  @apply btn btn-ghost btn-sm;
+}
+
+.actionButton--danger {
+  @apply text-danger-500 hover:text-danger-600;
+}

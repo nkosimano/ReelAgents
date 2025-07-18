@@ -1,0 +1,69 @@
+/* Modal Component Styles */
+.backdrop {
+  @apply fixed inset-0 bg-neutral-600 bg-opacity-75 transition-opacity z-50;
+}
+
+.container {
+  @apply flex min-h-screen items-center justify-center p-4;
+}
+
+.content {
+  @apply relative bg-white dark:bg-neutral-800 rounded-lg shadow-xl w-full transform transition-all;
+}
+
+.content--sm {
+  @apply max-w-md;
+}
+
+.content--md {
+  @apply max-w-lg;
+}
+
+.content--lg {
+  @apply max-w-2xl;
+}
+
+.content--xl {
+  @apply max-w-4xl;
+}
+
+.header {
+  @apply flex items-center justify-between p-6 border-b border-neutral-200 dark:border-neutral-700;
+}
+
+.title {
+  @apply text-lg font-semibold text-neutral-900 dark:text-neutral-100;
+}
+
+.closeButton {
+  @apply text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors p-1 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-700;
+}
+
+.body {
+  @apply p-6;
+}
+
+/* Animation classes */
+.fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}

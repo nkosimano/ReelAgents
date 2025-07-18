@@ -1,0 +1,168 @@
+/* Company Digital Twins Page Styles */
+.pageHeader {
+  @apply space-y-2;
+}
+
+.pageTitle {
+  @apply text-2xl font-bold text-neutral-900 dark:text-neutral-100;
+}
+
+.pageDescription {
+  @apply text-neutral-600 dark:text-neutral-400;
+}
+
+.contentGrid {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+}
+
+.uploaderSection {
+  @apply lg:col-span-1;
+}
+
+.listSection {
+  @apply lg:col-span-2;
+}
+
+.uploaderCard {
+  @apply card card-padding-md border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800;
+}
+
+.uploaderHeader {
+  @apply card-header;
+}
+
+.uploaderTitle {
+  @apply text-lg font-semibold text-primary;
+}
+
+.uploaderContent {
+  @apply space-y-4;
+}
+
+.fileInput {
+  @apply w-full file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-secondary file:text-white hover:file:bg-secondary/90 file:cursor-pointer;
+}
+
+.selectedFile {
+  @apply text-neutral-700 dark:text-neutral-300;
+}
+
+.fileName {
+  @apply font-medium;
+}
+
+.uploadButton {
+  @apply btn btn-primary btn-md w-full;
+}
+
+.uploadButton--disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.statusMessage {
+  @apply text-sm;
+}
+
+.statusMessage--success {
+  @apply text-success;
+}
+
+.statusMessage--error {
+  @apply text-danger;
+}
+
+.twinsList {
+  @apply space-y-4;
+}
+
+.twinCard {
+  @apply card card-padding-md;
+}
+
+.twinContent {
+  @apply flex items-center justify-between;
+}
+
+.twinInfo {
+  @apply flex items-center space-x-4;
+}
+
+.twinIcon {
+  @apply w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center;
+}
+
+.twinIconSvg {
+  @apply w-6 h-6 text-primary;
+}
+
+.twinDetails {
+  @apply space-y-1;
+}
+
+.twinName {
+  @apply font-medium text-neutral-900 dark:text-neutral-100;
+}
+
+.twinDescription {
+  @apply text-sm text-neutral-600 dark:text-neutral-400;
+}
+
+.twinDate {
+  @apply text-xs text-neutral-500 dark:text-neutral-400;
+}
+
+.twinActions {
+  @apply flex items-center space-x-4;
+}
+
+.twinStatus {
+  @apply status-badge;
+}
+
+.twinStatus--active {
+  @apply status-active;
+}
+
+.twinStatus--training {
+  @apply status-training;
+}
+
+.twinStatus--pending {
+  @apply status-pending;
+}
+
+.twinStatus--failed {
+  @apply status-failed;
+}
+
+.viewButton {
+  @apply text-sm text-secondary hover:text-secondary/80 font-medium;
+}
+
+.emptyState {
+  @apply card card-padding-lg text-center;
+}
+
+.emptyIcon {
+  @apply w-12 h-12 text-neutral-400 mx-auto mb-4;
+}
+
+.emptyTitle {
+  @apply text-lg font-medium text-neutral-900 dark:text-neutral-100 mb-2;
+}
+
+.emptyDescription {
+  @apply text-neutral-600 dark:text-neutral-400;
+}
+
+.loadingState {
+  @apply card card-padding-lg flex items-center justify-center;
+}
+
+.loadingSpinner {
+  @apply w-8 h-8 animate-spin text-secondary;
+}
+
+.loadingText {
+  @apply ml-3 text-neutral-600 dark:text-neutral-400;
+}

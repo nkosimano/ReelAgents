@@ -5,6 +5,7 @@ import { supabase } from '../../lib/supabaseClient';
 import { AuthLayout } from '../../components/layouts/AuthLayout';
 import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import styles from './Login.module.css';
 
 export const Login: React.FC = () => {
   const { isAuthenticated } = useAuth();
@@ -47,10 +48,10 @@ export const Login: React.FC = () => {
         magicLink={false}
         view="sign_in"
       />
-      <div className="mt-6 text-center">
-        <p className="text-sm text-neutral-600">
+      <div className={styles.authFooter}>
+        <p className={styles.footerText}>
           Don't have an account?{' '}
-          <a href="/auth/signup" className="font-medium text-secondary hover:text-secondary/90">
+          <a href="/auth/signup" className={styles.footerLink}>
             Sign up
           </a>
         </p>

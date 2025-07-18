@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Input.module.css';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -14,28 +15,28 @@ export const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   return (
-    <div className="form-group">
+    <div className={styles.formGroup}>
       {label && (
-        <label className="input-label">
+        <label className={styles.label}>
           {label}
         </label>
       )}
       <input
         className={`
-          input
+          ${styles.input}
           ${error 
-            ? 'input-error' 
-            : 'input-normal'
+            ? styles['input--error']
+            : styles['input--normal']
           }
           ${className}
         `}
         {...props}
       />
       {error && (
-        <p className="input-error-text">{error}</p>
+        <p className={styles.errorText}>{error}</p>
       )}
       {helperText && !error && (
-        <p className="input-helper">{helperText}</p>
+        <p className={styles.helperText}>{helperText}</p>
       )}
     </div>
   );
@@ -55,28 +56,28 @@ export const Textarea: React.FC<TextareaProps> = ({
   ...props
 }) => {
   return (
-    <div className="form-group">
+    <div className={styles.formGroup}>
       {label && (
-        <label className="input-label">
+        <label className={styles.label}>
           {label}
         </label>
       )}
       <textarea
         className={`
-          input resize-none
+          ${styles.input} ${styles.textarea}
           ${error 
-            ? 'input-error' 
-            : 'input-normal'
+            ? styles['input--error']
+            : styles['input--normal']
           }
           ${className}
         `}
         {...props}
       />
       {error && (
-        <p className="input-error-text">{error}</p>
+        <p className={styles.errorText}>{error}</p>
       )}
       {helperText && !error && (
-        <p className="input-helper">{helperText}</p>
+        <p className={styles.helperText}>{helperText}</p>
       )}
     </div>
   );
